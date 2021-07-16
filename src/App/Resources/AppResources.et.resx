@@ -363,7 +363,7 @@
     <value>Kinnita sõrmejäljega</value>
   </data>
   <data name="VerifyMasterPassword" xml:space="preserve">
-    <value>Kinnita ülemparooliga</value>
+    <value>Autendi ülemparooliga</value>
   </data>
   <data name="VerifyPIN" xml:space="preserve">
     <value>Kinnita PIN</value>
@@ -711,7 +711,7 @@
     <value>Bitwardeni Veebihoidla</value>
   </data>
   <data name="Lost2FAApp" xml:space="preserve">
-    <value>Kaotasid autentiseerimise rakenduse?</value>
+    <value>Kaotasid autentimise rakenduse?</value>
   </data>
   <data name="Items" xml:space="preserve">
     <value>Kirjet</value>
@@ -790,11 +790,11 @@
     <comment>Message shown when trying to launch an app that does not exist on the user's device.</comment>
   </data>
   <data name="AuthenticatorAppTitle" xml:space="preserve">
-    <value>Autentiseerimise rakendus</value>
+    <value>Autentimise rakendus</value>
     <comment>For 2FA</comment>
   </data>
   <data name="EnterVerificationCodeApp" xml:space="preserve">
-    <value>Sisesta autentiseerimise rakendusest 6 kohaline number.</value>
+    <value>Sisesta autentimise rakendusest 6 kohaline number.</value>
     <comment>For 2FA</comment>
   </data>
   <data name="EnterVerificationCodeEmail" xml:space="preserve">
@@ -806,7 +806,7 @@
     <comment>For 2FA whenever there are no available providers on this device.</comment>
   </data>
   <data name="NoTwoStepAvailable" xml:space="preserve">
-    <value>Sellel kontol on aktiveeritud kaheastmeline kinnitus. Siiski ei toeta ükski aktiveeritud kaheastmelise kinnitamise teenus seda konkreetset seadet. Palun kasuta ühilduvat seadet ja/või lisa uus kaheastmelise teenuse pakkuja, mis töötab rohkemates seadmetes (näiteks mõni autentiseerimise rakendus).</value>
+    <value>Sellel kontol on aktiveeritud kaheastmeline kinnitus. Siiski ei toeta ükski aktiveeritud kaheastmelise kinnitamise teenus seda konkreetset seadet. Palun kasuta ühilduvat seadet ja/või lisa uus kaheastmelise teenuse pakkuja, mis töötab rohkemates seadmetes (näiteks mõni autentimise rakendus).</value>
   </data>
   <data name="RecoveryCodeTitle" xml:space="preserve">
     <value>Taastamise kood</value>
@@ -862,17 +862,17 @@
     <comment>The placeholder will show the file size of the attachment. Ex "25 MB"</comment>
   </data>
   <data name="AuthenticatorKey" xml:space="preserve">
-    <value>Autentiseerimise võti (TOTP)</value>
+    <value>Autentimise võti (TOTP)</value>
   </data>
   <data name="VerificationCodeTotp" xml:space="preserve">
     <value>Kinnituskood (TOTP)</value>
     <comment>Totp code label</comment>
   </data>
   <data name="AuthenticatorKeyAdded" xml:space="preserve">
-    <value>Autentiseerimise võti on lisatud.</value>
+    <value>Autentimise võti on lisatud.</value>
   </data>
   <data name="AuthenticatorKeyReadError" xml:space="preserve">
-    <value>Autentiseerimise võtme lugemine nurjus.</value>
+    <value>Autentimise võtme lugemine nurjus.</value>
   </data>
   <data name="CameraInstructionBottom" xml:space="preserve">
     <value>Skaneering toimub automaatselt.</value>
@@ -893,7 +893,7 @@
     <value>Kopeeri TOTP</value>
   </data>
   <data name="DisableAutoTotpCopyDescription" xml:space="preserve">
-    <value>Kui sinu sisselogimise andmetele on juurde lisatud autentiseerimise võti, kopeeritakse TOTP kood automaattäite kasutamisel lõikepuhvrisse.</value>
+    <value>Kui sinu sisselogimise andmetele on juurde lisatud autentimise võti, kopeeritakse TOTP kood automaattäite kasutamisel lõikepuhvrisse.</value>
   </data>
   <data name="DisableAutoTotpCopy" xml:space="preserve">
     <value>Keela automaatne TOTP kopeerimine</value>
@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Eksporditav fail sisaldab hoidla sisu, mis on krüpteeringuta. Seda faili ei tohiks kaua käidelda ning mitte mingil juhul ebaturvaliselt saata (näiteks e-postiga). Kustuta see koheselt pärast kasutamist.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Eksporditavate andmete krüpteerimiseks kasutatakse kontol olevat krüpteerimisvõtit. Kui sa peaksid seda krüpteerimise võtit roteerima, ei saa sa järgnevalt eksporditavaid andmeid enam dekrüpteerida.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Iga Bitwardeni kasutaja krüpteerimisvõti on unikaalne. Eksporditud andmeid ei saa importida teise Bitwardeni kasutajakontosse.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Hoidla eksportimise kinnitamine</value>
@@ -1796,6 +1799,204 @@
     <value>Ettevõtte poliitika tõttu ei saa sa andmeid oma personaalsesse Hoidlasse salvestada. Vali Omanikuks organisatsioon ja vali mõni saadavaolevatest Kogumikest.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Organisatsiooni poliitika on seadnud omaniku valikutele piirangu.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Kõik Sendid</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sendid</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Sisesta Sendi nimi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Tekst</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Tekst, mida soovid saata.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Sendi avamisel peida tekst automaatselt</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Fail, mida soovid saata.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Kustutamise kuupäev</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Kustutamise aeg</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Send kustutatakse määratud kuupäeval ja kellaajal jäädavalt.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Kustutamise ootel</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Aegumiskuupäev</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Aegumise kellaaeg</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Selle valimisel ei pääse sellele Sendile enam pärast määratud kuupäeva ligi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Aegunud</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Maksimaalne ligipääsude arv</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Selle valimisel ei saa kasutajad pärast maksimaalse ligipääsude arvu saavutamist sellele Sendile enam ligi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Maksimaalne ligipääsude arv on saavutatud</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Hetkeline ligipääsude arv</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Uus Parool</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Soovi korral nõua parooli, millega Sendile ligi pääseb.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Eemalda parool</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Soovid kindlasti selle parooli eemaldada?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Parooli eemaldamine</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Parool on eemaldatud</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Privaatne märkus selle Sendi kohta.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Keela see Send, et keegi ei pääseks sellele ligi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Kontol pole ühtegi Sendi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Kopeeri link</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Jaga linki</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Sendi link</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Otsi Sende</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Muuda Sendi</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Lisa Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Soovid tõesti selle Sendi kustutada?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Send on kustutatud.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send on uuendatud.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Uus Send on loodud.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 päev</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 päeva</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 päeva</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 päeva</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 päeva</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Kohandatud</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Jaga seda Sendi salvestamise ajal.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>Ettevõtte poliitika kohaselt saad ainult olemasolevat Sendi kustutada.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Rohkem infot</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Ära näita saajatele minu e-posti aadressi.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Organisatsiooni seaded mõjutavad sinu Sendi sätteid.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Tasuta kontoga on võimalik saata ainult tekste. Failide saatmiseks on vajalik omada tasulist kontot.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Failide saatmiseks läbi Sendi pead kinnitama oma e-posti.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

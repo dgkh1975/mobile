@@ -190,7 +190,7 @@
     <comment>Full label for a email address.</comment>
   </data>
   <data name="EmailUs" xml:space="preserve">
-    <value>Напишите нам</value>
+    <value>Написать нам</value>
   </data>
   <data name="EmailUsDescription" xml:space="preserve">
     <value>Чтобы получить помощь или оставить отзыв, отправьте нам письмо.</value>
@@ -375,7 +375,7 @@
     <value>Просмотр</value>
   </data>
   <data name="VisitOurWebsite" xml:space="preserve">
-    <value>Посетите наш сайт</value>
+    <value>Посетить наш сайт</value>
   </data>
   <data name="VisitOurWebsiteDescription" xml:space="preserve">
     <value>Посетите наш веб-сайт, чтобы получить помощь, прочесть новости, связаться с нами и/или узнать больше о том, как использовать Bitwarden.</value>
@@ -556,7 +556,7 @@
     <value>Неверное подтверждение пароля.</value>
   </data>
   <data name="MasterPasswordDescription" xml:space="preserve">
-    <value>Мастер-пароль это ключ к вашему защищенному хранилищу. Он очень важен, поэтому не забывайте его. Восстановить мастер-пароль невозможно.</value>
+    <value>Мастер-пароль – это ключ к вашему защищенному хранилищу. Он очень важен, поэтому не забывайте его. Восстановить мастер-пароль невозможно.</value>
   </data>
   <data name="MasterPasswordHint" xml:space="preserve">
     <value>Подсказка к мастер-паролю (необяз.)</value>
@@ -607,7 +607,7 @@
     <value>Настройки по умолчанию задаются из генератора паролей основного приложения Bitwarden.</value>
   </data>
   <data name="Options" xml:space="preserve">
-    <value>Параметры</value>
+    <value>Опции</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>Прочее</value>
@@ -632,7 +632,7 @@
     <comment>Push notifications for apple products</comment>
   </data>
   <data name="RateTheApp" xml:space="preserve">
-    <value>Оцените приложение</value>
+    <value>Оценить приложение</value>
   </data>
   <data name="RateTheAppDescription" xml:space="preserve">
     <value>Пожалуйста, подумайте о том, чтобы помочь нам хорошим отзывом!</value>
@@ -759,7 +759,7 @@
     <value>Статус</value>
   </data>
   <data name="BitwardenAutofillServiceAlert2" xml:space="preserve">
-    <value>Самый простой способ добавить новые логины в ваше хранилище это служба автозаполнения Bitwarden. Дополнительные сведения об использовании службы автозаполнения Bitwarden в разделе 'Настройки'.</value>
+    <value>Самый простой способ добавить новые логины в ваше хранилище – это служба автозаполнения Bitwarden. Дополнительные сведения об использовании службы автозаполнения Bitwarden в разделе 'Настройки'.</value>
   </data>
   <data name="Autofill" xml:space="preserve">
     <value>Автозаполнение</value>
@@ -890,7 +890,7 @@
     <value>Фотографии</value>
   </data>
   <data name="CopyTotp" xml:space="preserve">
-    <value>Копировать TOTP</value>
+    <value>Скопировать TOTP</value>
   </data>
   <data name="DisableAutoTotpCopyDescription" xml:space="preserve">
     <value>Если к вашему логину прикреплен ключ проверки подлинности, то код подтверждения TOTP будет скопирован при автозаполнении логина.</value>
@@ -973,10 +973,10 @@
     <value>Пользовательские поля</value>
   </data>
   <data name="CopyNumber" xml:space="preserve">
-    <value>Копировать номер</value>
+    <value>Скопировать номер</value>
   </data>
   <data name="CopySecurityCode" xml:space="preserve">
-    <value>Копировать код безопасности</value>
+    <value>Скопировать код безопасности</value>
   </data>
   <data name="Number" xml:space="preserve">
     <value>Номер</value>
@@ -988,7 +988,7 @@
     <value>Карта</value>
   </data>
   <data name="TypeIdentity" xml:space="preserve">
-    <value>Личность</value>
+    <value>Личная информация</value>
   </data>
   <data name="TypeLogin" xml:space="preserve">
     <value>Логин</value>
@@ -1431,7 +1431,7 @@
     <value>Экспортировать хранилище</value>
   </data>
   <data name="LockNow" xml:space="preserve">
-    <value>Заблокировать</value>
+    <value>Заблокировать сейчас</value>
   </data>
   <data name="PIN" xml:space="preserve">
     <value>PIN-код</value>
@@ -1446,7 +1446,7 @@
     <value>Установите PIN-код для разблокировки Bitwarden. Настройки PIN-кода будут сброшены, если вы когда-либо полностью выйдете из приложения.</value>
   </data>
   <data name="LoggedInAsOn" xml:space="preserve">
-    <value>Выполнен вход на {1} как {0}.</value>
+    <value>Авторизован {0} на {1}.</value>
     <comment>ex: Logged in as user@example.com on bitwarden.com.</comment>
   </data>
   <data name="VaultLockedMasterPassword" xml:space="preserve">
@@ -1511,7 +1511,7 @@
     <value>Скопировать заметки</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>Выход</value>
+    <value>Выйти</value>
   </data>
   <data name="ExitConfirmation" xml:space="preserve">
     <value>Вы действительно хотите выйти из Bitwarden?</value>
@@ -1530,7 +1530,7 @@
     <value>Для URI, внесенных в черный список, автоматическое заполнение предлагаться не будет. Список приложений должен быть разделен запятыми. Например: "https://twitter.com, androidapp://com.twitter.android".</value>
   </data>
   <data name="DisableSavePrompt" xml:space="preserve">
-    <value>Отключить запрос на сохранение</value>
+    <value>Отключить запрос о сохранении</value>
   </data>
   <data name="DisableSavePromptDescription" xml:space="preserve">
     <value>Уведомление о сохранении автоматически предложит вам сохранить новые элементы в ваше хранилище.</value>
@@ -1549,7 +1549,7 @@
     <comment>ex. Uppercase the first character of a word.</comment>
   </data>
   <data name="IncludeNumber" xml:space="preserve">
-    <value>Включить цифру</value>
+    <value>Добавить цифру</value>
   </data>
   <data name="Download" xml:space="preserve">
     <value>Загрузить</value>
@@ -1570,7 +1570,7 @@
     <value>биометрией</value>
   </data>
   <data name="UseBiometricsToUnlock" xml:space="preserve">
-    <value>Используйте биометрию для разблокировки</value>
+    <value>Использовать биометрию</value>
   </data>
   <data name="AccessibilityOverlayPermissionAlert" xml:space="preserve">
     <value>Bitwarden требует внимания - см. раздел 'Служба специальных возможностей автозаполнения' в настройках Bitwarden.</value>
@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Экспортируемый файл содержит данные вашего хранилища в незашифрованном формате. Его не следует хранить или отправлять по небезопасным каналам (например по электронной почте). Удалите его сразу после использования.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
-    <value>При экспорте данные шифруются с помощью ключа шифрования учетной записи. Если вы когда-либо меняли ключ шифрования учетной записи, то следует экспортировать данные повторно, иначе вы не сможете расшифровать этот файл экспорта.</value>
+  <data name="EncExportKeyWarning" xml:space="preserve">
+    <value>При экспорте данные шифруются с помощью ключа шифрования учетной записи. Если вы когда-либо повернете ключ шифрования учетной записи, вам следует экспортировать данные повторно, поскольку вы не сможете расшифровать этот файл экспорта.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Ключи шифрования уникальны для каждой учетной записи Bitwarden, поэтому нельзя импортировать зашифрованное хранилище в другой аккаунт.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Подтвердить экспорт хранилища</value>
@@ -1688,7 +1691,7 @@
     <value>Биометрическая разблокировка для автозаполнения отключена в ожидании проверки мастер-пароля.</value>
   </data>
   <data name="EnableSyncOnRefresh" xml:space="preserve">
-    <value>Включить синхронизацию при обновлении</value>
+    <value>Включить синхронизацию жестом</value>
   </data>
   <data name="EnableSyncOnRefreshDescription" xml:space="preserve">
     <value>Синхронизация хранилища жестом смахивания вниз.</value>
@@ -1742,7 +1745,7 @@
     <value>Загрузка</value>
   </data>
   <data name="AcceptPolicies" xml:space="preserve">
-    <value>Устанавливая этот флажок, вы соглашаетесь со следующим:</value>
+    <value>Активируя этот переключатель, вы соглашаетесь со следующим:</value>
   </data>
   <data name="AcceptPoliciesError" xml:space="preserve">
     <value>Условия предоставления услуг и Политика конфиденциальности не были подтверждены.</value>
@@ -1760,10 +1763,10 @@
     <value>Службы автозаполнения</value>
   </data>
   <data name="InlineAutofill" xml:space="preserve">
-    <value>Использовать встроенное автозаполнение</value>
+    <value>Встроенное в клавиатуру автозаполнение</value>
   </data>
   <data name="InlineAutofillDescription" xml:space="preserve">
-    <value>Использовать встроенное автозаполнение, если выбранный способ ввода (клавиатура) его поддерживает. Если ваша конфигурация не поддерживается (или эта опция отключена), будет использоваться автозаполнение наложением по умолчанию.</value>
+    <value>Использовать встроенное в клавиатуру автозаполнение, если выбранный способ ввода его поддерживает. Если ваша система не поддерживается (или опция выключена), будет использоваться обычное наложение.</value>
   </data>
   <data name="Accessibility" xml:space="preserve">
     <value>Cпециальные возможности</value>
@@ -1793,9 +1796,207 @@
     <value>При включении, служба специальных возможностей отобразит всплывающее сообщение, чтобы вызвать службу автозаполнения для старых приложений, не поддерживающих фреймворк автозаполнения Android.</value>
   </data>
   <data name="PersonalOwnershipSubmitError" xml:space="preserve">
-    <value>В соответствии с корпоративной политикой вам запрещено сохранять элементы в личном хранилище. Измените параметр "Владелец" на организацию и выберите из доступных Коллекций.</value>
+    <value>В соответствии с корпоративной политикой вам запрещено сохранять элементы в личном хранилище. Измените владельца на организацию и выберите из доступных Коллекций.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Политика организации влияет на ваши варианты владения.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Все Send’ы</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Send’ы</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Понятное имя для описания этой Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Текст, который вы хотите отправить.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>При доступе к Send скрывать текст по умолчанию</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Файл, который вы хотите отправить.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Срок удаления</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Время удаления</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Эта Send будет окончательно удалена в указанные дату и время.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Ожидание удаления</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Срок истечения</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Время истечения</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Если задано, доступ к этой Send истечет в указанные дату и время.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Срок истек</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Максимум обращений</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Если задано, пользователи больше не смогут получить доступ к этой Send, как только будет достигнуто максимальное количество обращений.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Достигнут максимум обращений</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Текущих обращений</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>По возможности запрашивать у пользователей пароль для доступа к этой Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Удалить пароль</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить пароль?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Удаление пароля</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Пароль был удален.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Личные заметки об этой Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Отключить эту Send, чтобы никто не мог получить к ней доступ.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>В вашем хранилище нет Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Добавить Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Скопировать ссылку</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Поделиться ссылкой</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Ссылка на Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Поиск Send’ов</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Изменить Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Добавить Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Вы действительно хотите удалить эту Send?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Send была удалена.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send обновлена.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Новая Send создана.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 день</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 дня</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 дня</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 дней</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 дней</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Другой</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Поделиться Send после сохранения.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>В соответствии с корпоративной политикой вы можете удалить только существующую Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>О Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Скрыть мой адрес электронной почты от получателей.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>На параметры Send влияют одна или несколько политик организации.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Используя бесплатную учетную запись, можно делиться только текстом. Чтобы использовать файлы с помощью Send, требуется Премиум.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Для использования файлов с помощью Send необходимо подтвердить свой email.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Повторный запрос мастер-пароля</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Подтверждение мастер-пароля</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>Это действие защищено. Для продолжения введите свой мастер-пароль, чтобы подтвердить свою личность.</value>
   </data>
 </root>

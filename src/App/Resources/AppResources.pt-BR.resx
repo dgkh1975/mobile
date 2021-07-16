@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>O arquivo exportado contém os dados do seu cofre em um formato não encriptado. Você não deve armazenar ou enviar o arquivo exportado através de canais inseguros (como por e-mail). Exclua-o imediatamente quando terminar de utilizá-lo.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Esta exportação criptografa seus dados usando a chave de criptografia da sua conta. Se você rotacionar a chave de criptografia da sua conta, você deve exportar novamente, já que você não será capaz de descriptografar este arquivo de exportação.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Chaves de criptografia da conta são únicas para cada conta de usuário do Bitwarden, então você não pode importar uma exportação criptografada para uma conta diferente.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Confirmar exportação de cofre</value>
@@ -1685,7 +1688,7 @@
     <value>Alteração biométrica detectada, faça o login usando a Senha Mestra para ativar novamente.</value>
   </data>
   <data name="BiometricInvalidatedExtension" xml:space="preserve">
-    <value>Desbloqueio biométrico para preenchimento automático desabilitado a verificação pendente da senha mestra.</value>
+    <value>O desbloqueio biométrico para autopreenchimento  está desabilitado, faça o login usando a Senha Mestra para ativar novamente.</value>
   </data>
   <data name="EnableSyncOnRefresh" xml:space="preserve">
     <value>Ativar sincronização ao atualizar</value>
@@ -1797,6 +1800,204 @@
     <value>Devido a uma Política Empresarial, você está restrito de salvar itens para seu cofre pessoal. Altere a opção de propriedade para uma organização e escolha entre Coleções disponíveis.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Uma política de organização está afetando suas opções de propriedade.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Todos os Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Um nome amigável para descrever este Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Texto</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>O texto que você deseja enviar.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Ao acessar o Send, ocultar o texto por padrão</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>O arquivo que você deseja enviar.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Data de Exclusão</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Hora da Exclusão</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>O envio será eliminado permanentemente na data e hora especificadas.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Exclusão pendente</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Data de Validade</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Hora da Expiração</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Se definido, o acesso a este Send expirará na data e hora especificadas.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expirado</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Contagem Máxima de Acessos</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Se atribuído, usuários não poderão mais acessar este Send assim que o número máximo de acessos for atingido.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Número máximo de acessos atingido</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Contagem Atual de Acessos</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nova Senha</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Opcionalmente exigir uma senha para os usuários acessarem este Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Remover Senha</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Você tem certeza que deseja remover a senha?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Removendo senha</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>A senha foi removida.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Notas privadas sobre esse Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Desabilite este Send para que ninguém possa acessá-lo.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Não há nenhum Send na sua conta.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Copiar Link</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Compartilhar Link</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Link do Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Pesquisar Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Editar Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Adicionar Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Você tem certeza que deseja excluir este Send?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>O Send foi excluído.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send atualizado.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Novo Send criado.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 dia</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 dias</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 dias</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 dias</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 dias</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Personalizado</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Compartilhar este Send após salvar.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>Devido a uma política corporativa, você só é capaz de excluir um Send existente.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Sobre o Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Ocultar meu endereço de e-mail dos destinatários.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Uma ou mais políticas da organização estão afetando as suas opções de Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Contas gratuitas são restritas para compartilhar apenas de texto. É necessária uma assinatura premium para usar arquivos com o Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Você deve verificar o seu e-mail para usar arquivos com o Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

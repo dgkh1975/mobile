@@ -103,11 +103,9 @@ namespace Bit.App.Pages
                 return;
             }
 
-            var keyHash = await _cryptoService.HashPasswordAsync(_masterPassword, null);
+            var passwordValid = await _cryptoService.CompareAndUpdateKeyHashAsync(_masterPassword, null);
             MasterPassword = string.Empty;
-
-            var storedKeyHash = await _cryptoService.GetKeyHashAsync();
-            if (storedKeyHash == null || keyHash == null || storedKeyHash != keyHash)
+            if (!passwordValid)
             {
                 await _platformUtilsService.ShowDialogAsync(_i18nService.T("InvalidMasterPassword"));
                 return;
@@ -128,7 +126,7 @@ namespace Bit.App.Pages
                 fileFormat = fileFormat == "encrypted_json" ? "json" : fileFormat;
 
                 _defaultFilename = _exportService.GetFileName(null, fileFormat);
-                _exportResult = Encoding.ASCII.GetBytes(data);
+                _exportResult = Encoding.UTF8.GetBytes(data);
 
                 if (!_deviceActionService.SaveFile(_exportResult, null, _defaultFilename, null))
                 {
@@ -170,7 +168,9 @@ namespace Bit.App.Pages
             switch (FileFormatOptions[FileFormatSelectedIndex].Key)
             {
                 case "encrypted_json":
-                    ExportWarningMessage = _i18nService.T("EncExportVaultWarning");
+                    ExportWarningMessage = _i18nService.T("EncExportKeyWarning") +
+                        "\n\n" +
+                        _i18nService.T("EncExportAccountWarning");
                     break;
                 default:
                     ExportWarningMessage = _i18nService.T("ExportVaultWarning");

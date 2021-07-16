@@ -80,14 +80,14 @@ namespace Bit.Core.Utilities
             return null;
         }
 
-        private static Uri GetUri(string uriString)
+        public static Uri GetUri(string uriString)
         {
             if (string.IsNullOrWhiteSpace(uriString))
             {
                 return null;
             }
             var hasHttpProtocol = uriString.StartsWith("http://") || uriString.StartsWith("https://");
-            if (!hasHttpProtocol && uriString.Contains("."))
+            if (!hasHttpProtocol && !uriString.Contains("://") && uriString.Contains("."))
             {
                 if (Uri.TryCreate("http://" + uriString, UriKind.Absolute, out var uri))
                 {

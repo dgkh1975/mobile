@@ -66,10 +66,9 @@ namespace Bit.iOS.Core.Services
             {
                 Duration = TimeSpan.FromSeconds(longDuration ? 5 : 3)
             };
-            if (TabBarVisible())
-            {
-                _toast.BottomMargin = 55;
-            }
+            _toast.BottomMargin = 110;
+            _toast.LeftMargin = 20;
+            _toast.RightMargin = 20;
             _toast.Show();
             _toast.DismissCallback = () =>
             {
@@ -201,7 +200,7 @@ namespace Bit.iOS.Core.Services
 
         public Task<string> DisplayPromptAync(string title = null, string description = null,
             string text = null, string okButtonText = null, string cancelButtonText = null,
-            bool numericKeyboard = false, bool autofocus = true)
+            bool numericKeyboard = false, bool autofocus = true, bool password = false)
         {
             var result = new TaskCompletionSource<string>();
             var alert = UIAlertController.Create(title ?? string.Empty, description, UIAlertControllerStyle.Alert);
@@ -223,6 +222,9 @@ namespace Bit.iOS.Core.Services
                 if (numericKeyboard)
                 {
                     input.KeyboardType = UIKeyboardType.NumberPad;
+                }
+                if (password) {
+                    input.SecureTextEntry = true;
                 }
                 if (!ThemeHelpers.LightTheme)
                 {
@@ -435,6 +437,11 @@ namespace Bit.iOS.Core.Services
             // Fall back to UnixTimeMilliseconds in case this approach stops working. We'll lose clock-change
             // protection but the lock functionality will continue to work.
             return iOSHelpers.GetSystemUpTimeMilliseconds() ?? DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        }
+
+        public void CloseMainApp()
+        {
+            throw new NotImplementedException();
         }
 
         private void ImagePicker_FinishedPickingMedia(object sender, UIImagePickerMediaPickedEventArgs e)

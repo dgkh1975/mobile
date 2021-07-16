@@ -48,6 +48,7 @@ namespace Bit.Droid.Autofill
         //   - ... to keep this list in sync with values in AccessibilityHelpers.SupportedBrowsers [Section A], too.
         public static HashSet<string> CompatBrowsers = new HashSet<string>
         {
+            "alook.browser",
             "com.amazon.cloud9",
             "com.android.browser",
             "com.android.chrome",
@@ -62,13 +63,20 @@ namespace Bit.Droid.Autofill
             "com.chrome.beta",
             "com.chrome.canary",
             "com.chrome.dev",
+            "com.cookiegames.smartcookie",
+            "com.cookiejarapps.android.smartcookieweb",
             "com.ecosia.android",
             "com.google.android.apps.chrome",
             "com.google.android.apps.chrome_dev",
+            "com.jamal2367.styx",
             "com.kiwibrowser.browser",
             "com.microsoft.emmx",
+            "com.microsoft.emmx.beta",
+            "com.microsoft.emmx.canary",
+            "com.microsoft.emmx.dev",
             "com.mmbox.browser",
             "com.mmbox.xbrowser",
+            "com.mycompany.app.soulbrowser",
             "com.naver.whale",
             "com.opera.browser",
             "com.opera.browser.beta",
@@ -91,6 +99,10 @@ namespace Bit.Droid.Autofill
             "io.github.forkmaintainers.iceraven",
             "mark.via",
             "mark.via.gp",
+            "net.slions.fulguris.full.download",
+            "net.slions.fulguris.full.download.debug",            
+            "net.slions.fulguris.full.playstore",
+            "net.slions.fulguris.full.playstore.debug",
             "org.adblockplus.browser",
             "org.adblockplus.browser.beta",
             "org.bromite.bromite",
@@ -130,13 +142,14 @@ namespace Bit.Droid.Autofill
                 {
                     var allCiphers = ciphers.Item1.ToList();
                     allCiphers.AddRange(ciphers.Item2.ToList());
-                    return allCiphers.Select(c => new FilledItem(c)).ToList();
+                    var nonPromptCiphers = allCiphers.Where(cipher => cipher.Reprompt == CipherRepromptType.None);
+                    return nonPromptCiphers.Select(c => new FilledItem(c)).ToList();
                 }
             }
             else if (parser.FieldCollection.FillableForCard)
             {
                 var ciphers = await cipherService.GetAllDecryptedAsync();
-                return ciphers.Where(c => c.Type == CipherType.Card).Select(c => new FilledItem(c)).ToList();
+                return ciphers.Where(c => c.Type == CipherType.Card && c.Reprompt == CipherRepromptType.None).Select(c => new FilledItem(c)).ToList();
             }
             return new List<FilledItem>();
         }

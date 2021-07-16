@@ -12,6 +12,9 @@
 <autofill-service xmlns:android="http://schemas.android.com/apk/res/android"
     android:supportsInlineSuggestions="true">
   <compatibility-package
+    android:name="alook.browser"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
     android:name="com.amazon.cloud9"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
@@ -54,6 +57,12 @@
     android:name="com.chrome.dev"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
+    android:name="com.cookiegames.smartcookie"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="com.cookiejarapps.android.smartcookieweb"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
     android:name="com.ecosia.android"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
@@ -63,16 +72,31 @@
     android:name="com.google.android.apps.chrome_dev"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
+    android:name="com.jamal2367.styx"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
     android:name="com.kiwibrowser.browser"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
     android:name="com.microsoft.emmx"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
+    android:name="com.microsoft.emmx.beta"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="com.microsoft.emmx.canary"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="com.microsoft.emmx.dev"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
     android:name="com.mmbox.browser"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
     android:name="com.mmbox.xbrowser"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="com.mycompany.app.soulbrowser"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
     android:name="com.naver.whale"
@@ -139,6 +163,18 @@
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
     android:name="mark.via.gp"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="net.slions.fulguris.full.download"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="net.slions.fulguris.full.download.debug"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="net.slions.fulguris.full.playstore"
+    android:maxLongVersionCode="10000000000"/>
+  <compatibility-package
+    android:name="net.slions.fulguris.full.playstore.debug"
     android:maxLongVersionCode="10000000000"/>
   <compatibility-package
     android:name="org.adblockplus.browser"

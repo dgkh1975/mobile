@@ -20,6 +20,7 @@ namespace Bit.App.Pages
         private readonly AppOptions _appOptions;
         private readonly IStorageService _storageService;
         private readonly IDeviceActionService _deviceActionService;
+        private readonly IVaultTimeoutService _vaultTimeoutService;
 
         private AddEditPageViewModel _vm;
         private bool _fromAutofill;
@@ -38,6 +39,7 @@ namespace Bit.App.Pages
         {
             _storageService = ServiceContainer.Resolve<IStorageService>("storageService");
             _deviceActionService = ServiceContainer.Resolve<IDeviceActionService>("deviceActionService");
+            _vaultTimeoutService = ServiceContainer.Resolve<IVaultTimeoutService>("vaultTimeoutService");
             _appOptions = appOptions;
             _fromAutofill = fromAutofill;
             FromAutofillFramework = _appOptions?.FromAutofillFramework ?? false;
@@ -47,6 +49,7 @@ namespace Bit.App.Pages
             _vm.CipherId = cipherId;
             _vm.FolderId = folderId == "none" ? null : folderId;
             _vm.CollectionIds = collectionId != null ? new HashSet<string>(new List<string> { collectionId }) : null;
+            _vm.CollectionsRepeaterView = _collectionsRepeaterView;
             _vm.Type = type;
             _vm.DefaultName = name ?? appOptions?.SaveName;
             _vm.DefaultUri = uri ?? appOptions?.Uri;
@@ -144,6 +147,14 @@ namespace Bit.App.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            if (!await AppHelpers.IsVaultTimeoutImmediateAsync())
+            {
+                await _vaultTimeoutService.CheckVaultTimeoutAsync();
+            }
+            if (await _vaultTimeoutService.IsLockedAsync())
+            {
+                return;
+            }
             await LoadOnAppearedAsync(_scrollView, true, async () =>
             {
                 var success = await _vm.LoadAsync(_appOptions);
@@ -158,6 +169,7 @@ namespace Bit.App.Pages
                 {
                     RequestFocus(_nameEntry);
                 }
+                _scrollView.Scrolled += (sender, args) => _vm.HandleScroll();
             });
         }
 
@@ -375,6 +387,11 @@ namespace Bit.App.Pages
                     }
                 }
             }
+        }
+
+        private void PasswordPrompt_Toggled(object sender, ToggledEventArgs e)
+        {
+            _vm.Cipher.Reprompt = e.Value ? CipherRepromptType.Password : CipherRepromptType.None;
         }
     }
 }

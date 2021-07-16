@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Az exportált széfadatok titkosítatlan formátumban kerülnek elmentésre. Ne tároljuk sehol, illetve ne küldjük el senkinek a fájlt nem biztonságos felületeken (például email). Használat után azonnal töröljük.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Ez az exportálás titkosítja az adatokat a fiók titkosítási kulcsával. Ha valaha a diók forgatási kulcsa más lesz, akkor újra exportálni kell, mert nem lehet visszafejteni ezt az exportálási fájlt.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>A fiók titkosítási kulcsai minden Bitwarden felhasználói fiókhoz egyediek, ezért nem importálhatunk titkosított exportálást egy másik fiókba.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Széf export megerősítése</value>
@@ -1796,6 +1799,204 @@
     <value>Egy vállalati házirend miatt korlátozható az elemek személyes tárolóba történő mentése. Módosítsuk a Tulajdon opciót egy szervezetre és válasszunk az elérhető gyűjtemények közül.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Egy szervezeti házirend befolyásolja a tulajdonjog beállításait.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Küldés</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Összes küldés</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Küldések</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Barátságos név a Küldés leírására.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Szöveg</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>A küldendő szöveg.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>A Küldés elérésekor alapértelmezés szerint a szöveg elrejtése</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Fájl</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>A küldendő fájl.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Törlési dátum</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Törlési dátum</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>A Send véglegesen törlésre kerül a meghatározott időpontban.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Függőben lévő törlés</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Lejárati dátum</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Lejárati idő</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Beállítva a hozzáférés ehhez a Küldéshez lejár a meghatározott időpontban.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Lejárt</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Maximális elérési szám</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Beállítva a Küldés elérhetetlen lesz a meghatározott hozzáférések számának elérése után.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>A maximális hozzáférések száma elérésre került.</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Aktuális elérési szám</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Új jelszó</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Opcionálissan egy jelszó kérhető a felhasználóktól a Küldés eléréséhez.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Jelszó eltávolítása</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Biztosan eltávolításra kerüljön ez a jelszó?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Jelszó eltávolítása</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>A jelszó eltávolításra került</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Személyes megjegyzések erről a Küldésről.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>A Küldés letiltásával mindenki hozzáférése megvonható.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>A fiókban nincsenek küldések.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Hivatkozás másolása</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Hivatkozás megosztása</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Hivatkozás küldése</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Küldés keresése</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Küldés szerkesztése</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Küldés hozzáadása</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Biztosan törlésre kerüljön ez a küldés?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>A küldés törlésre került.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>A küldés frissítésre került.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Az új küldés létrejött.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 nap</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 nap</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 nap</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 nap</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 nap</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Egyedi</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>A Küldés megosztása mentéskor.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>A vállalati házirend miatt csak egy meglévő Küldés törölhető.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>A küldésről</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Saját email cím elrejtése a címzettek elől.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Egy vagy több szervezeti szabály érinti a Send opciókat.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Ingyenes fiókkal csak szöveget lehet megosztani. Prémium tagság szükséges a fájlok használatához a Sendnél.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Ha fájlokat szeretnénk használni a Senddel, ellenőrizni kell az email címet.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

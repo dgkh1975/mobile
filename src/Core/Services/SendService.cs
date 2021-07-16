@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Bit.Core.Abstractions;
 using Bit.Core.Enums;
+using Bit.Core.Exceptions;
 using Bit.Core.Models.Data;
 using Bit.Core.Models.Domain;
 using Bit.Core.Models.Request;
@@ -25,11 +26,13 @@ namespace Bit.Core.Services
         private readonly II18nService _i18nService;
         private readonly ICryptoFunctionService _cryptoFunctionService;
         private Task<List<SendView>> _getAllDecryptedTask;
+        private readonly IFileUploadService _fileUploadService;
 
         public SendService(
             ICryptoService cryptoService,
             IUserService userService,
             IApiService apiService,
+            IFileUploadService fileUploadService,
             IStorageService storageService,
             II18nService i18nService,
             ICryptoFunctionService cryptoFunctionService)
@@ -37,6 +40,7 @@ namespace Bit.Core.Services
             _cryptoService = cryptoService;
             _userService = userService;
             _apiService = apiService;
+            _fileUploadService = fileUploadService;
             _storageService = storageService;
             _i18nService = i18nService;
             _cryptoFunctionService = cryptoFunctionService;
@@ -77,7 +81,7 @@ namespace Bit.Core.Services
             await DeleteAsync(id);
         }
 
-        public async Task<(Send send, CipherString encryptedFileData)> EncryptAsync(SendView model, byte[] fileData,
+        public async Task<(Send send, EncByteArray encryptedFileData)> EncryptAsync(SendView model, byte[] fileData,
             string password, SymmetricCryptoKey key = null)
         {
             if (model.Key == null)
@@ -91,12 +95,15 @@ namespace Bit.Core.Services
                 Id = model.Id,
                 Type = model.Type,
                 Disabled = model.Disabled,
+                DeletionDate = model.DeletionDate,
+                ExpirationDate = model.ExpirationDate,
                 MaxAccessCount = model.MaxAccessCount,
                 Key = await _cryptoService.EncryptAsync(model.Key, key),
                 Name = await _cryptoService.EncryptAsync(model.Name, model.CryptoKey),
                 Notes = await _cryptoService.EncryptAsync(model.Notes, model.CryptoKey),
+                HideEmail = model.HideEmail
             };
-            CipherString encryptedFileData = null;
+            EncByteArray encryptedFileData = null;
 
             if (password != null)
             {
@@ -119,7 +126,7 @@ namespace Bit.Core.Services
                     if (fileData != null)
                     {
                         send.File.FileName = await _cryptoService.EncryptAsync(model.File.FileName, model.CryptoKey);
-                        encryptedFileData = await _cryptoService.EncryptAsync(fileData, model.CryptoKey);
+                        encryptedFileData = await _cryptoService.EncryptToBytesAsync(fileData, model.CryptoKey);
                     }
                     break;
                 default:
@@ -133,7 +140,7 @@ namespace Bit.Core.Services
         {
             var userId = await _userService.GetUserIdAsync();
             var sends = await _storageService.GetAsync<Dictionary<string, SendData>>(GetSendKey(userId));
-            return sends.Select(kvp => new Send(kvp.Value)).ToList();
+            return sends?.Select(kvp => new Send(kvp.Value)).ToList() ?? new List<Send>();
         }
 
         public async Task<List<SendView>> GetAllDecryptedAsync()
@@ -161,7 +168,7 @@ namespace Bit.Core.Services
                 async Task decryptAndAddSendAsync(Send send) => decSends.Add(await send.DecryptAsync());
                 await Task.WhenAll((await GetAllAsync()).Select(s => decryptAndAddSendAsync(s)));
 
-                decSends.OrderBy(s => s, new SendLocaleComparer(_i18nService)).ToList();
+                decSends = decSends.OrderBy(s => s, new SendLocaleComparer(_i18nService)).ToList();
                 _decryptedSendsCache = decSends;
                 return _decryptedSendsCache;
             }
@@ -190,11 +197,10 @@ namespace Bit.Core.Services
             _decryptedSendsCache = null;
         }
 
-        public async Task SaveWithServerAsync(Send send, byte[] encryptedFileData)
+        public async Task<string> SaveWithServerAsync(Send send, EncByteArray encryptedFileData)
         {
-
-            var request = new SendRequest(send);
-            SendResponse response;
+            var request = new SendRequest(send, encryptedFileData?.Buffer?.LongLength);
+            SendResponse response = default;
             if (send.Id == null)
             {
                 switch (send.Type)
@@ -203,13 +209,23 @@ namespace Bit.Core.Services
                         response = await _apiService.PostSendAsync(request);
                         break;
                     case SendType.File:
-                        var fd = new MultipartFormDataContent($"--BWMobileFormBoundary{DateTime.UtcNow.Ticks}")
-                        {
-                            { new StringContent(JsonConvert.SerializeObject(request)), "model" },
-                            { new ByteArrayContent(encryptedFileData), "data", send.File.FileName.EncryptedString }
-                        };
+                        try{
+                            var uploadDataResponse = await _apiService.PostFileTypeSendAsync(request);
+                            response = uploadDataResponse.SendResponse;
 
-                        response = await _apiService.PostSendFileAsync(fd);
+                            await _fileUploadService.UploadSendFileAsync(uploadDataResponse, send.File.FileName, encryptedFileData);
+                        }
+                        catch (ApiException e) when (e.Error.StatusCode == HttpStatusCode.NotFound)
+                        {
+                            response = await LegacyServerSendFileUpload(request, send, encryptedFileData);
+                        }
+                        catch (Exception e) 
+                        {
+                            if (response != default){
+                                await _apiService.DeleteSendAsync(response.Id);
+                            }
+                            throw e;
+                        }
                         break;
                     default:
                         throw new NotImplementedException($"Cannot save unknown Send type {send.Type}");
@@ -223,6 +239,18 @@ namespace Bit.Core.Services
 
             var userId = await _userService.GetUserIdAsync();
             await UpsertAsync(new SendData(response, userId));
+            return response.Id;
+        }
+
+        [Obsolete("Mar 25 2021: This method has been deprecated in favor of direct uploads. This method still exists for backward compatibility with old server versions.")]
+        private async Task<SendResponse> LegacyServerSendFileUpload(SendRequest request, Send send, EncByteArray encryptedFileData) {
+            var fd = new MultipartFormDataContent($"--BWMobileFormBoundary{DateTime.UtcNow.Ticks}")
+                        {
+                            { new StringContent(JsonConvert.SerializeObject(request)), "model" },
+                            { new ByteArrayContent(encryptedFileData.Buffer), "data", send.File.FileName.EncryptedString }
+                        };
+
+            return await _apiService.PostSendFileAsync(fd);
         }
 
         public async Task UpsertAsync(params SendData[] sends)

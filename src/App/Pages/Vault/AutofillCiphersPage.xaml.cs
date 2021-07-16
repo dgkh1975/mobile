@@ -4,7 +4,10 @@ using Bit.Core.Abstractions;
 using Bit.Core.Enums;
 using Bit.Core.Utilities;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Bit.App.Controls;
+using Bit.App.Utilities;
 using Xamarin.Forms;
 
 namespace Bit.App.Pages
@@ -13,6 +16,7 @@ namespace Bit.App.Pages
     {
         private readonly AppOptions _appOptions;
         private readonly IPlatformUtilsService _platformUtilsService;
+        private readonly IVaultTimeoutService _vaultTimeoutService;
 
         private AutofillCiphersPageViewModel _vm;
 
@@ -25,11 +29,20 @@ namespace Bit.App.Pages
             _vm.Init(appOptions);
 
             _platformUtilsService = ServiceContainer.Resolve<IPlatformUtilsService>("platformUtilsService");
+            _vaultTimeoutService = ServiceContainer.Resolve<IVaultTimeoutService>("vaultTimeoutService");
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            if (!await AppHelpers.IsVaultTimeoutImmediateAsync())
+            {
+                await _vaultTimeoutService.CheckVaultTimeoutAsync();
+            }
+            if (await _vaultTimeoutService.IsLockedAsync())
+            {
+                return;
+            }
             await LoadOnAppearedAsync(_mainLayout, false, async () =>
             {
                 try
@@ -44,14 +57,23 @@ namespace Bit.App.Pages
             }, _mainContent);
         }
 
-        private async void RowSelected(object sender, SelectedItemChangedEventArgs e)
+        protected override bool OnBackButtonPressed()
         {
-            ((ListView)sender).SelectedItem = null;
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                _appOptions.Uri = null;
+            }
+            return base.OnBackButtonPressed();
+        }
+
+        private async void RowSelected(object sender, SelectionChangedEventArgs e)
+        {
+            ((ExtendedCollectionView)sender).SelectedItem = null;
             if (!DoOnce())
             {
                 return;
             }
-            if (e.SelectedItem is GroupingsPageListItem item && item.Cipher != null)
+            if (e.CurrentSelection?.FirstOrDefault() is GroupingsPageListItem item && item.Cipher != null)
             {
                 await _vm.SelectCipherAsync(item.Cipher, item.FuzzyAutofill);
             }

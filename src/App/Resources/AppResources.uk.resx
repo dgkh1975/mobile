@@ -673,7 +673,7 @@
     <comment>Message shown when interacting with the server</comment>
   </data>
   <data name="SyncingComplete" xml:space="preserve">
-    <value>Синхронізація завершена.</value>
+    <value>Синхронізацію завершено.</value>
   </data>
   <data name="SyncingFailed" xml:space="preserve">
     <value>Збій синхронізації.</value>
@@ -1567,10 +1567,10 @@
     <value>Біометрична перевірка</value>
   </data>
   <data name="Biometrics" xml:space="preserve">
-    <value>біометрикою</value>
+    <value>біометрією</value>
   </data>
   <data name="UseBiometricsToUnlock" xml:space="preserve">
-    <value>Використовувати біометрику для розблокування</value>
+    <value>Використовувати біометрію для розблокування</value>
   </data>
   <data name="AccessibilityOverlayPermissionAlert" xml:space="preserve">
     <value>Bitwarden потребує вашої уваги - Див. розділ "Служба спеціальних можливостей автозаповнення" в налаштуваннях Bitwarden</value>
@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Експортовані дані вашого сховища знаходяться в незашифрованому вигляді. Вам не слід зберігати чи надсилати їх через незахищені канали (наприклад, е-поштою). Після використання негайно видаліть їх.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Цей експорт шифрує ваші дані за допомогою ключа шифрування облікового запису. Якщо ви коли-небудь оновите ключ шифрування облікового запису, ви повинні виконати експорт знову, оскільки не зможете розшифрувати цей файл експорту.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Ключі шифрування є унікальними для кожного облікового запису Bitwarden, тому ви не можете імпортувати зашифрований експорт в інший обліковий запис.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Підтвердити експорт сховища</value>
@@ -1623,7 +1626,7 @@
     <comment>Clone an entity (verb).</comment>
   </data>
   <data name="PasswordGeneratorPolicyInEffect" xml:space="preserve">
-    <value>Політика однієї або декількох організацій впливає на ваші параметри генерування</value>
+    <value>На параметри генератора впливають одна чи декілька політик організації</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>Відкрити</value>
@@ -1796,6 +1799,204 @@
     <value>Згідно з політикою компанії, вам заборонено зберігати записи в особистому сховищі. Змініть опцію власника на організацію та виберіть серед доступних збірок.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Політика організації впливає на ваші параметри власності.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Усі відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Опис цього відправлення.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Текст, який ви хочете відправити.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>При доступі до відправлення типово приховувати текст</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Файл, який ви хочете відправити.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Дата видалення</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Час видалення</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Відправлення буде остаточно видалено у вказаний час.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Очікується видалення</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Дата завершення</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Час завершення</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Якщо встановлено, термін дії цього відправлення завершиться у вказаний час.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Термін дії завершився</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Максимальна кількість доступів</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Якщо встановлено, користувачі більше не зможуть отримати доступ до цього відправлення після досягнення максимальної кількості доступів.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Досягнуто максимальну кількість доступів</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Поточна кількість доступів</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новий пароль</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>За бажанням вимагати пароль в користувачів для доступу до цього відправлення.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Вилучити пароль</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Ви дійсно хочете вилучити пароль?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Вилучення пароля</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Пароль вилучено.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Особисті нотатки про це відправлення.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Деактивувати це відправлення для скасування доступу до нього.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>У вашому обліковому записі немає відправлень.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Копіювати посилання</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Поділитись посиланням</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Посилання на відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Пошук відправлень</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Змінити відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Додати відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Ви дійсно хочете видалити це відправлення?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Відправлення було видалено.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Відправлення оновлено.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Створено нове відправлення.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 день</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 дні</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 дні</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 днів</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 днів</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Спеціальний</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Поділитися цим відправленням після збереження.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>У зв'язку з політикою компанії, ви можете лише видалити наявне відправлення.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Про відправлення</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Приховувати мою адресу електронної пошти від отримувачів.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>На параметри відправлень впливають одна чи декілька політик організації.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>З безплатним обліковим записом можна відправляти лише текст. Щоб відправляти файли через Send, необхідно передплатити тарифний план.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Для відправлення файлів необхідно підтвердити електронну пошту.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

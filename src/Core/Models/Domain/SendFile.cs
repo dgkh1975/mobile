@@ -8,17 +8,16 @@ namespace Bit.Core.Models.Domain
     public class SendFile : Domain
     {
         public string Id { get; set; }
-        public string Url { get; set; }
         public string Size { get; set; }
         public string SizeName { get; set; }
-        public CipherString FileName { get; set; }
+        public EncString FileName { get; set; }
 
         public SendFile() : base() { }
 
         public SendFile(SendFileData file, bool alreadyEncrypted = false) : base()
         {
             Size = file.Size;
-            BuildDomainModel(this, file, new HashSet<string> { "Id", "Url", "SizeName", "FileName" }, alreadyEncrypted, new HashSet<string> { "Id", "Url", "SizeName" });
+            BuildDomainModel(this, file, new HashSet<string> { "Id", "SizeName", "FileName" }, alreadyEncrypted, new HashSet<string> { "Id", "SizeName" });
         }
 
         public Task<SendFileView> DecryptAsync(SymmetricCryptoKey key) =>

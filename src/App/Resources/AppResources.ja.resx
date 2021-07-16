@@ -1410,7 +1410,7 @@
     <comment>To clear something out. example: To clear browser history.</comment>
   </data>
   <data name="Generator" xml:space="preserve">
-    <value>パスワード生成</value>
+    <value>パス生成</value>
     <comment>Short for "Password Generator"</comment>
   </data>
   <data name="NoFoldersToList" xml:space="preserve">
@@ -1602,11 +1602,14 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>このエクスポートデータは暗号化されていない形式の保管庫データを含んでいます。メールなどのセキュリティ保護されていない方法で共有したり保管したりしないでください。使用した後はすぐに削除してください。</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
-    <value>This export encrypts your data using your account's encryption key. If you ever rotate your account's encryption key you should export again since you will not be able to decrypt this export file.</value>
+  <data name="EncExportKeyWarning" xml:space="preserve">
+    <value>このエクスポートは、アカウントの暗号化キーを使用してデータを暗号化します。 暗号化キーをローテーションした場合は、このエクスポートファイルを復号することはできなくなるため、もう一度エクスポートする必要があります。</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>アカウント暗号化キーは各 Bitwarden ユーザーアカウントに固有であるため、暗号化されたエクスポートを別のアカウントにインポートすることはできません。</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
-    <value>Confirm Vault Export</value>
+    <value>保管庫のエクスポートの確認</value>
     <comment>Title for the alert to confirm vault exports.</comment>
   </data>
   <data name="Warning" xml:space="preserve">
@@ -1685,7 +1688,7 @@
     <value>生体認証の変更が検出されました。マスターパスワードを使用してログインすると再度有効化できます。</value>
   </data>
   <data name="BiometricInvalidatedExtension" xml:space="preserve">
-    <value>Biometric unlock for autofill disabled pending verification of master password.</value>
+    <value>マスターパスワードの検証保留中は生体認証でのロック解除は無効化されています</value>
   </data>
   <data name="EnableSyncOnRefresh" xml:space="preserve">
     <value>更新時に同期を有効化</value>
@@ -1742,61 +1745,258 @@
     <value>読み込み中</value>
   </data>
   <data name="AcceptPolicies" xml:space="preserve">
-    <value>By activating this switch you agree to the following:
-</value>
+    <value>このスイッチを有効化することで以下に同意したものとします:</value>
   </data>
   <data name="AcceptPoliciesError" xml:space="preserve">
-    <value>Terms of Service and Privacy Policy have not been acknowledged.</value>
+    <value>利用規約とプライバシーポリシーが確認されていません。</value>
   </data>
   <data name="TermsOfService" xml:space="preserve">
-    <value>Terms of Service</value>
+    <value>利用規約</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Privacy Policy</value>
+    <value>プライバシーポリシー</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
-    <value>Bitwarden needs attention - Enable "Draw-Over" in "Auto-fill Services" from Bitwarden Settings</value>
+    <value>Bitwarden の設定が必要です - Bitwarden の設定にある「自動入力サービス」の「重ねて表示」を有効化してください。</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
-    <value>Auto-fill Services</value>
+    <value>自動入力サービス</value>
   </data>
   <data name="InlineAutofill" xml:space="preserve">
-    <value>Use Inline Autofill</value>
+    <value>インライン自動入力を使用する</value>
   </data>
   <data name="InlineAutofillDescription" xml:space="preserve">
-    <value>Use inline autofill if your selected IME (keyboard) supports it. If your configuration is not supported (or this option is disabled), the default Autofill overlay will be used.</value>
+    <value>お使いの IME （キーボード）が対応している場合に、インライン自動入力を使用します。お使いの環境が対応していない場合（またはこのオプションが無効化されている場合）には、デフォルトの自動入力オーバレイが使用されます。</value>
   </data>
   <data name="Accessibility" xml:space="preserve">
-    <value>Use Accessibility</value>
+    <value>ユーザー補助を使用する</value>
   </data>
   <data name="AccessibilityDescription" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to auto-fill your logins across apps and the web. When enabled, we'll display a popup when login fields are selected.</value>
+    <value>アプリやウェブでログイン情報を自動入力するのに Bitwarden ユーザー補助サービスを使用します。有効化すると、ログインフィールドが選択されたときにポップアップが表示されます。</value>
   </data>
   <data name="AccessibilityDescription2" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to auto-fill your logins across apps and the web. (Requires Draw-Over to be enabled as well)</value>
+    <value>アプリやウェブでログイン情報を自動入力するのに Bitwarden ユーザー補助サービスを使用します（重ねて表示も有効化する必要があります）。</value>
   </data>
   <data name="AccessibilityDescription3" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to use the Autofill Quick-Action Tile, and/or show a popup using Draw-Over (if enabled).</value>
+    <value>自動入力クイック設定タイルを使用し、またはポップアップを重ねて表示するために、Bitwarden ユーザー補助サービスを使用します（有効化されている場合）。</value>
   </data>
   <data name="AccessibilityDescription4" xml:space="preserve">
-    <value>Required to use the Autofill Quick-Action Tile, or to augment the Autofill Service by using Draw-Over (if enabled).</value>
+    <value>自動入力クイック設定タイルを使用し、または重ねて表示により自動入力サービスを拡張する（有効化されている場合）ために必要です。</value>
   </data>
   <data name="DrawOver" xml:space="preserve">
-    <value>Use Draw-Over</value>
+    <value>重ねて表示を使用する</value>
   </data>
   <data name="DrawOverDescription" xml:space="preserve">
-    <value>When enabled, allows the Bitwarden Accessibility Service to display a popup when login fields are selected.</value>
+    <value>有効化すると、ログインフィールドが選択されたときに Bitwarden ユーザー補助サービスがポップアップを表示します。</value>
   </data>
   <data name="DrawOverDescription2" xml:space="preserve">
-    <value>If enabled, the Bitwarden Accessibility Service will display a popup when login fields are selected to assist with auto-filling your logins.</value>
+    <value>有効化すると、ログインフィールドが選択されたときにログイン情報の自動入力を補助するために Bitwarden ユーザー補助サービスがポップアップを表示します。</value>
   </data>
   <data name="DrawOverDescription3" xml:space="preserve">
-    <value>If enabled, accessibility will show a popup to augment the Autofill Service for older apps that don't support the Android Autofill Framework.</value>
+    <value>有効化すると、Android 自動入力フレームワークに対応していない古いアプリでも自動入力サービスを利用できるように、ユーザー補助サービスがポップアップを表示します。</value>
   </data>
   <data name="PersonalOwnershipSubmitError" xml:space="preserve">
-    <value>Due to an Enterprise Policy, you are restricted from saving items to your personal vault. Change the Ownership option to an organization and choose from available Collections.</value>
+    <value>組織のポリシーにより、個人保管庫へのアイテムの保存が制限されています。 所有権を組織に変更し、利用可能なコレクションから選択してください。</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>組織のポリシーが所有者のオプションに影響を与えています。</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>すべての Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>この Send を説明するわかりやすい名前</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>テキスト</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>送信したいテキスト</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Send へのアクセス時に既定でテキストを非表示にする</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>送信するファイル</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>削除日</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>削除時刻</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Send は指定された日時に完全に削除されます。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>削除の保留中</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>有効期限日</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>有効期限時刻</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>設定されている場合、この Send へのアクセスは指定された日時に失効します。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>有効期限切れ</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>最大アクセス数</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>設定されている場合、最大アクセス数に達するとユーザーはこの Send にアクセスできなくなります。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>最大アクセス数に達しました</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>現在のアクセス数</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>新しいパスワード</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>必要に応じて、ユーザーがこの Send にアクセスするためのパスワードを要求します。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>パスワードを削除</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>パスワードを削除してもよろしいですか？</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>パスワードを削除中</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>パスワードを削除しました。</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>この Send に関するプライベートメモ</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>誰もアクセスできないように、この Send を無効にする</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>あなたのアカウントには Send がありません。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>リンクをコピー</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>リンクを共有</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Send リンク</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Send を検索</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Send を編集</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Send を追加</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>この Send を削除してもよろしいですか?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Send を削除しました。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send を更新しました。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>新しい Send を作成しました。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1日</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2日</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3日</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7日</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30日</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>保存時にこの Send を共有する</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>組織のポリシーにより、既存の Send のみを削除できます。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Send について</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>メールアドレスを受信者に表示しない</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>一つ以上の組織ポリシーが Send の設定に影響しています。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>無料アカウントではテキストの共有のみに制限されています。Send でファイルを送信するにはプレミアム会員登録が必要です。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Send でファイルを送信するにはメールアドレスを確認する必要があります。</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

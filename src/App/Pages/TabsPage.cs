@@ -8,6 +8,7 @@ namespace Bit.App.Pages
     public class TabsPage : TabbedPage
     {
         private NavigationPage _groupingsPage;
+        private NavigationPage _sendGroupingsPage;
         private NavigationPage _generatorPage;
 
         public TabsPage(AppOptions appOptions = null, PreviousPageInfo previousPage = null)
@@ -18,6 +19,13 @@ namespace Bit.App.Pages
                 IconImageSource = "lock.png"
             };
             Children.Add(_groupingsPage);
+
+            _sendGroupingsPage = new NavigationPage(new SendGroupingsPage(true, null, null, appOptions))
+            {
+                Title = AppResources.Send,
+                IconImageSource = "paper_plane.png",
+            };
+            Children.Add(_sendGroupingsPage);
 
             _generatorPage = new NavigationPage(new GeneratorPage(true, null, this))
             {
@@ -52,6 +60,10 @@ namespace Bit.App.Pages
             {
                 appOptions.MyVaultTile = false;
             }
+            else if (appOptions?.CreateSend != null)
+            {
+                ResetToSendPage();
+            }
         }
 
         public void ResetToVaultPage()
@@ -62,6 +74,11 @@ namespace Bit.App.Pages
         public void ResetToGeneratorPage()
         {
             CurrentPage = _generatorPage;
+        }
+        
+        public void ResetToSendPage()
+        {
+            CurrentPage = _sendGroupingsPage;
         }
 
         protected async override void OnCurrentPageChanged()

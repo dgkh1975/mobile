@@ -171,6 +171,26 @@ namespace Bit.App.Services
             return tcs.Task;
         }
 
+        public async Task<bool> ShowPasswordDialogAsync(string title, string body, Func<string, Task<bool>> validator)
+        {
+            var password = await _deviceActionService.DisplayPromptAync(AppResources.PasswordConfirmation,
+                AppResources.PasswordConfirmationDesc, null, AppResources.Submit, AppResources.Cancel, password: true);
+
+            if (password == null)
+            {
+                return false;
+            }
+
+            var valid = await validator(password);
+
+            if (!valid)
+            {
+                await ShowDialogAsync(AppResources.InvalidMasterPassword, null, AppResources.Ok);
+            }
+
+            return valid;
+        }
+
         public bool IsDev()
         {
             return Core.Utilities.CoreHelpers.InDebugMode();

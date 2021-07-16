@@ -8,6 +8,7 @@ using Bit.Core.Models.Domain;
 using Bit.Core.Utilities;
 using System;
 using System.Threading.Tasks;
+using Bit.App.Utilities;
 using Bit.Core.Models.Request;
 using Xamarin.Forms;
 
@@ -37,7 +38,6 @@ namespace Bit.App.Pages
         private string _biometricButtonText;
         private string _loggedInAsText;
         private string _lockedVerifyText;
-        private int _invalidPinAttempts = 0;
         private Tuple<bool, bool> _pinSet;
 
         public LockPageViewModel()
@@ -203,11 +203,12 @@ namespace Bit.App.Pages
                             _vaultTimeoutService.PinProtectedKey);
                         var encKey = await _cryptoService.GetEncKeyAsync(key);
                         var protectedPin = await _storageService.GetAsync<string>(Constants.ProtectedPin);
-                        var decPin = await _cryptoService.DecryptToUtf8Async(new CipherString(protectedPin), encKey);
+                        var decPin = await _cryptoService.DecryptToUtf8Async(new EncString(protectedPin), encKey);
                         failed = decPin != Pin;
                         if (!failed)
                         {
                             Pin = string.Empty;
+                            await AppHelpers.ResetInvalidUnlockAttemptsAsync();
                             await SetKeyAndContinueAsync(key);
                         }
                     }
@@ -217,6 +218,7 @@ namespace Bit.App.Pages
                             kdf.GetValueOrDefault(KdfType.PBKDF2_SHA256), kdfIterations.GetValueOrDefault(5000));
                         failed = false;
                         Pin = string.Empty;
+                        await AppHelpers.ResetInvalidUnlockAttemptsAsync();
                         await SetKeyAndContinueAsync(key);
                     }
                 }
@@ -226,8 +228,8 @@ namespace Bit.App.Pages
                 }
                 if (failed)
                 {
-                    _invalidPinAttempts++;
-                    if (_invalidPinAttempts >= 5)
+                    var invalidUnlockAttempts = await AppHelpers.IncrementInvalidUnlockAttemptsAsync();
+                    if (invalidUnlockAttempts >= 5)
                     {
                         _messagingService.Send("logout");
                         return;
@@ -239,32 +241,31 @@ namespace Bit.App.Pages
             else
             {
                 var key = await _cryptoService.MakeKeyAsync(MasterPassword, _email, kdf, kdfIterations);
-                var keyHash = await _cryptoService.HashPasswordAsync(MasterPassword, key);
+                var storedKeyHash = await _cryptoService.GetKeyHashAsync();
                 var passwordValid = false;
-                if (keyHash != null)
+                
+                if (storedKeyHash != null)
                 {
-                    var storedKeyHash = await _cryptoService.GetKeyHashAsync();
-                    if (storedKeyHash != null)
+                    passwordValid = await _cryptoService.CompareAndUpdateKeyHashAsync(MasterPassword, key);
+                }
+                else
+                {
+                    await _deviceActionService.ShowLoadingAsync(AppResources.Loading);
+                    var keyHash = await _cryptoService.HashPasswordAsync(MasterPassword, key, HashPurpose.ServerAuthorization);
+                    var request = new PasswordVerificationRequest();
+                    request.MasterPasswordHash = keyHash;
+                    try
                     {
-                        passwordValid = storedKeyHash == keyHash;
+                        await _apiService.PostAccountVerifyPasswordAsync(request);
+                        passwordValid = true;
+                        var localKeyHash = await _cryptoService.HashPasswordAsync(MasterPassword, key, HashPurpose.LocalAuthorization);
+                        await _cryptoService.SetKeyHashAsync(localKeyHash);
                     }
-                    else
+                    catch (Exception e)
                     {
-                        await _deviceActionService.ShowLoadingAsync(AppResources.Loading);
-                        var request = new PasswordVerificationRequest();
-                        request.MasterPasswordHash = keyHash;
-                        try
-                        {
-                            await _apiService.PostAccountVerifyPasswordAsync(request);
-                            passwordValid = true;
-                            await _cryptoService.SetKeyHashAsync(keyHash);
-                        }
-                        catch (Exception e)
-                        {
-                            System.Diagnostics.Debug.WriteLine(">>> {0}: {1}", e.GetType(), e.StackTrace);
-                        }
-                        await _deviceActionService.HideLoadingAsync();
+                        System.Diagnostics.Debug.WriteLine(">>> {0}: {1}", e.GetType(), e.StackTrace);
                     }
+                    await _deviceActionService.HideLoadingAsync();
                 }
                 if (passwordValid)
                 {
@@ -272,12 +273,13 @@ namespace Bit.App.Pages
                     {
                         var protectedPin = await _storageService.GetAsync<string>(Constants.ProtectedPin);
                         var encKey = await _cryptoService.GetEncKeyAsync(key);
-                        var decPin = await _cryptoService.DecryptToUtf8Async(new CipherString(protectedPin), encKey);
+                        var decPin = await _cryptoService.DecryptToUtf8Async(new EncString(protectedPin), encKey);
                         var pinKey = await _cryptoService.MakePinKeyAysnc(decPin, _email,
                             kdf.GetValueOrDefault(KdfType.PBKDF2_SHA256), kdfIterations.GetValueOrDefault(5000));
                         _vaultTimeoutService.PinProtectedKey = await _cryptoService.EncryptAsync(key.Key, pinKey);
                     }
                     MasterPassword = string.Empty;
+                    await AppHelpers.ResetInvalidUnlockAttemptsAsync();
                     await SetKeyAndContinueAsync(key);
 
                     // Re-enable biometrics
@@ -288,6 +290,12 @@ namespace Bit.App.Pages
                 }
                 else
                 {
+                    var invalidUnlockAttempts = await AppHelpers.IncrementInvalidUnlockAttemptsAsync();
+                    if (invalidUnlockAttempts >= 5)
+                    {
+                        _messagingService.Send("logout");
+                        return;
+                    }
                     await _platformUtilsService.ShowDialogAsync(AppResources.InvalidMasterPassword,
                         AppResources.AnErrorHasOccurred);
                 }

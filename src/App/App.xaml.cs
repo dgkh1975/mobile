@@ -131,7 +131,8 @@ namespace Bit.App
                     await SetMainPageAsync();
                 }
                 else if (message.Command == "popAllAndGoToTabGenerator" ||
-                    message.Command == "popAllAndGoToTabMyVault")
+                    message.Command == "popAllAndGoToTabMyVault" ||
+                    message.Command == "popAllAndGoToTabSend")
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
@@ -146,10 +147,14 @@ namespace Bit.App
                                 Options.MyVaultTile = false;
                                 tabsPage.ResetToVaultPage();
                             }
-                            else
+                            else if (message.Command == "popAllAndGoToTabGenerator")
                             {
                                 Options.GeneratorTile = false;
                                 tabsPage.ResetToGeneratorPage();
+                            }
+                            else if (message.Command == "popAllAndGoToTabSend")
+                            {
+                                tabsPage.ResetToSendPage();
                             }
                         }
                     });
@@ -172,6 +177,10 @@ namespace Bit.App
                 {
                     SyncIfNeeded();
                 }
+            }
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                await _vaultTimeoutService.CheckVaultTimeoutAsync();
             }
             _messagingService.Send("startEventTimer");
         }
@@ -211,7 +220,6 @@ namespace Bit.App
         private async void ResumedAsync()
         {
             await _vaultTimeoutService.CheckVaultTimeoutAsync();
-            _messagingService.Send("cancelVaultTimeoutTimer");
             _messagingService.Send("startEventTimer");
             await ClearCacheIfNeededAsync();
             Prime();
@@ -244,7 +252,8 @@ namespace Bit.App
                 _collectionService.ClearAsync(userId),
                 _passwordGenerationService.ClearAsync(),
                 _vaultTimeoutService.ClearAsync(),
-                _stateService.PurgeAsync());
+                _stateService.PurgeAsync(),
+                _deviceActionService.ClearCacheAsync());
             _vaultTimeoutService.BiometricLocked = true;
             _searchService.ClearIndex();
             _authService.LogOut(() =>
@@ -273,6 +282,10 @@ namespace Bit.App
                 else if (Options.Uri != null)
                 {
                     Current.MainPage = new NavigationPage(new AutofillCiphersPage(Options));
+                }
+                else if (Options.CreateSend != null)
+                {
+                    Current.MainPage = new NavigationPage(new SendAddEditPage(Options));
                 }
                 else
                 {
@@ -303,11 +316,7 @@ namespace Bit.App
                 vaultTimeout = await _storageService.GetAsync<int?>(Constants.VaultTimeoutKey);
             }
             vaultTimeout = vaultTimeout.GetValueOrDefault(-1);
-            if (vaultTimeout > 0)
-            {
-                _messagingService.Send("scheduleVaultTimeoutTimer", vaultTimeout.Value);
-            }
-            else if (vaultTimeout == 0)
+            if (vaultTimeout == 0)
             {
                 var action = await _storageService.GetAsync<string>(Constants.VaultTimeoutActionKey);
                 if (action == "logOut")

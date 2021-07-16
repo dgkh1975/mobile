@@ -46,9 +46,14 @@ namespace Bit.Core.Abstractions
         Task<TResponse> SendAsync<TRequest, TResponse>(HttpMethod method, string path,
             TRequest body, bool authed, bool hasResponse);
         void SetUrls(EnvironmentUrls urls);
-        Task<CipherResponse> PostCipherAttachmentAsync(string id, MultipartFormDataContent data);
+        [Obsolete("Mar 25 2021: This method has been deprecated in favor of direct uploads. This method still exists for backward compatibility with old server versions.")]
+        Task<CipherResponse> PostCipherAttachmentLegacyAsync(string id, MultipartFormDataContent data);
+        Task<AttachmentUploadDataResponse> PostCipherAttachmentAsync(string id, AttachmentRequest request);
+        Task<AttachmentResponse> GetAttachmentData(string cipherId, string attachmentId);
         Task PostShareCipherAttachmentAsync(string id, string attachmentId, MultipartFormDataContent data,
             string organizationId);
+        Task<AttachmentUploadDataResponse> RenewAttachmentUploadUrlAsync(string id, string attachmentId);
+        Task PostAttachmentFileAsync(string id, string attachmentId, MultipartFormDataContent data);
         Task<List<BreachAccountResponse>> GetHibpBreachAsync(string username);
         Task PostTwoFactorEmailAsync(TwoFactorEmailRequest request);
         Task PutDeviceTokenAsync(string identifier, DeviceTokenRequest request);
@@ -56,7 +61,11 @@ namespace Bit.Core.Abstractions
 
         Task<SendResponse> GetSendAsync(string id);
         Task<SendResponse> PostSendAsync(SendRequest request);
+        Task<SendFileUploadDataResponse> PostFileTypeSendAsync(SendRequest request);
+        Task PostSendFileAsync(string sendId, string fileId, MultipartFormDataContent data);
+        [Obsolete("Mar 25 2021: This method has been deprecated in favor of direct uploads. This method still exists for backward compatibility with old server versions.")]
         Task<SendResponse> PostSendFileAsync(MultipartFormDataContent data);
+        Task<SendFileUploadDataResponse> RenewFileUploadUrlAsync(string sendId, string fileId);
         Task<SendResponse> PutSendAsync(string id, SendRequest request);
         Task<SendResponse> PutSendRemovePasswordAsync(string id);
         Task DeleteSendAsync(string id);

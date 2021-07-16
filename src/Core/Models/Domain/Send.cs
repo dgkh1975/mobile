@@ -15,11 +15,11 @@ namespace Bit.Core.Models.Domain
         public string AccessId { get; set; }
         public string UserId { get; set; }
         public SendType Type { get; set; }
-        public CipherString Name { get; set; }
-        public CipherString Notes { get; set; }
+        public EncString Name { get; set; }
+        public EncString Notes { get; set; }
         public SendFile File { get; set; }
         public SendText Text { get; set; }
-        public CipherString Key { get; set; }
+        public EncString Key { get; set; }
         public int? MaxAccessCount { get; set; }
         public int AccessCount { get; set; }
         public DateTime RevisionDate { get; set; }
@@ -27,6 +27,7 @@ namespace Bit.Core.Models.Domain
         public DateTime DeletionDate { get; set; }
         public string Password { get; set; }
         public bool Disabled { get; set; }
+        public bool HideEmail { get; set; }
 
         public Send() : base() { }
 
@@ -49,6 +50,7 @@ namespace Bit.Core.Models.Domain
             RevisionDate = data.RevisionDate;
             DeletionDate = data.DeletionDate;
             ExpirationDate = data.ExpirationDate;
+            HideEmail = data.HideEmail;
 
             switch (Type)
             {

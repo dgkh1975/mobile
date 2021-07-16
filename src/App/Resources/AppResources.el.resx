@@ -1603,8 +1603,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Αυτή η εξαγωγή περιέχει τα δεδομένα σε μη κρυπτογραφημένη μορφή. Δεν πρέπει να αποθηκεύετε ή να στείλετε το εξαγόμενο αρχείο μέσω μη ασφαλών τρόπων (όπως μέσω email). Διαγράψτε το αμέσως μόλις τελειώσετε με τη χρήση του.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Αυτή η εξαγωγή κρυπτογραφεί τα δεδομένα σας χρησιμοποιώντας το κλειδί κρυπτογράφησης του λογαριασμού σας. Εάν ποτέ περιστρέψετε το κλειδί κρυπτογράφησης του λογαριασμού σας, θα πρέπει να κάνετε εξαγωγή ξανά, καθώς δεν θα μπορείτε να αποκρυπτογραφήσετε αυτό το αρχείο εξαγωγής.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Τα κλειδιά κρυπτογράφησης λογαριασμού είναι μοναδικά για κάθε λογαριασμό χρήστη Bitwarden, οπότε δεν μπορείτε να εισάγετε μια κρυπτογραφημένη εξαγωγή σε διαφορετικό λογαριασμό.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Επιβεβαίωση εξαγωγής Vault</value>
@@ -1797,6 +1800,204 @@
     <value>Λόγω μιας Πολιτικής Επιχειρήσεων, δεν επιτρέπεται η αποθήκευση αντικειμένων στο προσωπικό σας vault. Αλλάξτε την επιλογή Ιδιοκτησίας σε έναν οργανισμό και επιλέξτε από τις διαθέσιμες Συλλογές.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Μια πολιτική οργανισμού, επηρεάζει τις επιλογές ιδιοκτησίας σας.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Όλα τα Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Ένα φιλικό όνομα για την περιγραφή αυτού του Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Κείμενο</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Το κείμενο που θέλετε να στείλετε.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Κατά την πρόσβαση σε αυτό το Send, αποκρύψτε το κείμενο από προεπιλογή</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Αρχείο</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Το αρχείο που θέλετε να στείλετε.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Ημερομηνία διαγραφής</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Χρόνος Διαγραφής</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Το Send θα διαγραφεί οριστικά την καθορισμένη ημερομηνία και ώρα.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Εκκρεμεί διαγραφή</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Ημερομηνία Λήξης</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Χρόνος λήξης</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Εάν οριστεί, η πρόσβαση σε αυτό το Send θα λήξει την καθορισμένη ημερομηνία και ώρα.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Έληξε</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Μέγιστος Αριθμός Πρόσβασης</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Εάν οριστεί, οι χρήστες δεν θα μπορούν πλέον να έχουν πρόσβαση σε αυτό το send μόλις επιτευχθεί ο μέγιστος αριθμός πρόσβασης.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Φτάσατε στον μέγιστο αριθμό πρόσβασης</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Τρέχων Αριθμός Πρόσβασης</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Νέος Κωδικός</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Προαιρετικά απαιτείται κωδικός πρόσβασης για τους χρήστες για να έχουν πρόσβαση σε αυτό το Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Αφαίρεση κωδικού</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Είστε βέβαιοι ότι θέλετε να καταργήσετε τον κωδικό πρόσβασης;</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Αφαίρεση κωδικού...</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Ο κωδικός έχει αφαιρεθεί.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Ιδιωτικές σημειώσεις σχετικά με αυτό το Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Απενεργοποιήστε αυτό το Send έτσι ώστε κανείς να μην μπορεί να έχει πρόσβαση σε αυτό.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Δεν υπάρχουν sends στο λογαριασμό σας.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Αντιγραφή Συνδέσμου</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Κοινοποίηση Συνδέσμου</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Σύνδεσμος Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Αναζήτηση Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Επεξεργασία Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Προσθήκη Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Είστε βέβαιοι ότι θέλετε να διαγράψετε το Send;</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Το send έχει διαγραφεί.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Το send ενημερώθηκε.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Δημιουργήθηκε νέο send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 ημέρα</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 ημέρες</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 ημέρες</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 ημέρες</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 ημέρες</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Προσαρμοσμένο</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Κοινοποιήστε αυτό το send κατά την αποθήκευση.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>Λόγω μιας επιχειρηματικής πολιτικής, είστε σε θέση να διαγράψετε μόνο ένα υπάρχον Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Σχετικά με το Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Απόκρυψη της διεύθυνσης email μου από τους παραλήπτες.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Μία ή περισσότερες οργανωτικές πολιτικές επηρεάζουν τις επιλογές send σας.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Οι δωρεάν λογαριασμοί περιορίζονται μόνο στην κοινή χρήση κειμένου. Μια premium συνδρομή απαιτείται για τη χρήση αρχείων με Αποστολή.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Πρέπει να επαληθεύσετε το email σας για να χρησιμοποιήσετε τα αρχεία με το send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

@@ -750,7 +750,7 @@
     <value>2. Laita asetus päälle ja paina OK-painiketta hyväksyäksesi.</value>
   </data>
   <data name="Disabled" xml:space="preserve">
-    <value>Pois käytöstä</value>
+    <value>Poistettu käytöstä</value>
   </data>
   <data name="Enabled" xml:space="preserve">
     <value>Käytössä</value>
@@ -842,7 +842,7 @@
     <comment>"YubiKey" is the product name and should not be translated.</comment>
   </data>
   <data name="AddNewAttachment" xml:space="preserve">
-    <value>Lisää uusi liite</value>
+    <value>Lisää uusi tiedostoliite</value>
   </data>
   <data name="Attachments" xml:space="preserve">
     <value>Liitteet</value>
@@ -858,7 +858,7 @@
     <comment>Message shown when downloading a file</comment>
   </data>
   <data name="AttachmentLargeWarning" xml:space="preserve">
-    <value>Tämän liitteen koko on {0}. Haluatko varmasti ladata sen laitteellesi?</value>
+    <value>Tiedostoliitteen koko on {0}. Haluatko varmasti ladata sen laitteellesi?</value>
     <comment>The placeholder will show the file size of the attachment. Ex "25 MB"</comment>
   </data>
   <data name="AuthenticatorKey" xml:space="preserve">
@@ -902,10 +902,10 @@
     <value>Käyttääksesi tätä toimintoa tarvitset Premium-jäsenyyden.</value>
   </data>
   <data name="AttachementAdded" xml:space="preserve">
-    <value>Liite lisättiin</value>
+    <value>Tiedostoliite lisättiin</value>
   </data>
   <data name="AttachmentDeleted" xml:space="preserve">
-    <value>Liite poistettiin</value>
+    <value>Tiedostoliite poistettiin</value>
   </data>
   <data name="ChooseFile" xml:space="preserve">
     <value>Valitse tiedosto</value>
@@ -917,7 +917,7 @@
     <value>Ei valittua tiedostoa</value>
   </data>
   <data name="NoAttachments" xml:space="preserve">
-    <value>Liitteitä ei ole.</value>
+    <value>Ei liitteitä.</value>
   </data>
   <data name="FileSource" xml:space="preserve">
     <value>Tiedoston lähde</value>
@@ -982,7 +982,7 @@
     <value>Numero</value>
   </data>
   <data name="SecurityCode" xml:space="preserve">
-    <value>Turvakoodi (CVV)</value>
+    <value>Turvakoodi (CVC/CVV)</value>
   </data>
   <data name="TypeCard" xml:space="preserve">
     <value>Kortti</value>
@@ -1508,7 +1508,7 @@
     <value>Käynnistetään uudelleen...</value>
   </data>
   <data name="CopyNotes" xml:space="preserve">
-    <value>Kopioi muistio</value>
+    <value>Kopioi muistiinpanot</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Poistu</value>
@@ -1561,7 +1561,7 @@
     <value>Näytä tai piilota</value>
   </data>
   <data name="LoginExpired" xml:space="preserve">
-    <value>Kirjautumisesi on vanhentunut.</value>
+    <value>Kirjautumisistuntosi on erääntynyt.</value>
   </data>
   <data name="BiometricsDirection" xml:space="preserve">
     <value>Biometrinen todennus</value>
@@ -1602,8 +1602,11 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Tämä vienti sisältää holvisi tiedot salaamattomassa muodossa. Sinun ei tulisi säilyttää tai lähettää vietyä tiedostoa suojaamattomien kanavien (kuten sähköpostin) välityksellä. Poista se välittömästi kun sille ei enää ole käyttöä.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
+  <data name="EncExportKeyWarning" xml:space="preserve">
     <value>Tämä vienti salaa tietosi käyttäen tilisi salausavainta. Jos joskus uudistat tilisi salausavaimen, tulisi vienti suorittaa uudelleen, koska et voi enää purkaa nyt viedyn tiedoston salausta.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Tilin salausavaimet ovat ainutlaatuisia jokaiselle Bitwarden-käyttäjätilille, joten et voi tuoda salattua vientitiedostoa toiselle tilille.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
     <value>Vahvista holvin vienti</value>
@@ -1623,7 +1626,7 @@
     <comment>Clone an entity (verb).</comment>
   </data>
   <data name="PasswordGeneratorPolicyInEffect" xml:space="preserve">
-    <value>Yksi tai useampi organisaation käytäntö vaikuttaa generaattorisi asetuksiin.</value>
+    <value>Yksi tai useampi organisaatiokäytäntö vaikuttaa generaattorisi asetuksiin</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>Avaa</value>
@@ -1633,7 +1636,7 @@
     <value>Liitteen tallennuksessa oli ongelma. Jos ongelma jatkuu, voit tehdä tallennuksen verkkoholvin kautta.</value>
   </data>
   <data name="SaveAttachmentSuccess" xml:space="preserve">
-    <value>Liitteen tallennus onnistui</value>
+    <value>Tiedostoliitteen tallennus onnistui</value>
   </data>
   <data name="AutofillTileAccessibilityRequired" xml:space="preserve">
     <value>Ota "Automaattisen täytön esteettömyyspalvelu" käyttöön Bitwardenin asetuksista käyttääksesi automaattisen täytön pikavalintapalkkia.</value>
@@ -1712,7 +1715,7 @@
     <value>Kirjautuaksesi sisään käyttäen kertakirjautumista (SSO), ole hyvä ja aseta holvillesi pääsalasana.</value>
   </data>
   <data name="MasterPasswordPolicyInEffect" xml:space="preserve">
-    <value>Yksi tai useampi organisaation käytäntö edellyttää, että pääsalasanasi täyttää seuraavat vaatimukset:</value>
+    <value>Yksi tai useampi organisaatiokäytäntö edellyttää, että pääsalasanasi täyttää seuraavat vaatimukset:</value>
   </data>
   <data name="PolicyInEffectMinComplexity" xml:space="preserve">
     <value>Monimutkaisuuden vähimmäispistemäärä on {0}</value>
@@ -1742,7 +1745,7 @@
     <value>Ladataan</value>
   </data>
   <data name="AcceptPolicies" xml:space="preserve">
-    <value>Aktivoimalla tämän kytkimen hyväksyt seuraavat:</value>
+    <value>Aktivoimalla tämän valinnan hyväksyt seuraavat:</value>
   </data>
   <data name="AcceptPoliciesError" xml:space="preserve">
     <value>Käyttöehtoja ja tietosuojakäytäntöä ei ole vahvistettu.</value>
@@ -1790,12 +1793,210 @@
     <value>Kun käytössä, Bitwardenin esteettömyyspalvelu näyttää aktiivisten kirjautumiskenttien ohessa pikavalintapalkin helpottaakseen kirjautumistietojesi automaattista täyttöä.</value>
   </data>
   <data name="DrawOverDescription3" xml:space="preserve">
-    <value>Kun käytössä, esteettömyyspalvelu näyttää pikavalintapalkin laajentaakseen automaattisen täytön palvelun toiminnan kattamaan myös vanhemmat sovellukset, jotka eivät tue Android Autofill Framework -rajapintaa.</value>
+    <value>Jos käytössä, esteettömyyspalvelu näyttää pikavalintapalkin laajentaakseen automaattisen täytön palvelun toiminnan kattamaan myös vanhemmat sovellukset, jotka eivät tue Android Autofill Framework -rajapintaa.</value>
   </data>
   <data name="PersonalOwnershipSubmitError" xml:space="preserve">
     <value>Yrityksen asettaman käytännön johdosta kohteiden tallennus omaan holviisi ei ole mahdollista. Muuta omistusasetus organisaatiolle ja valitse käytettävissä olevista kokoelmista.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Organisaatiokäytäntö vaikuttaa omistajuusvalintoihisi.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Kaikki Sendit</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sendit</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Kuvaava nimi Sendille.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Teksti</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Teksti, jonka haluat lähettää.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Piilota teksti oletuksena kun Send avataan</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Tiedosto</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Tiedosto, jonka haluat lähettää.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Poistopäivä</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Poistoaika</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Send poistetaan pysyvästi määritettynä ajankohtana.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Odottaa poistoa</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Erääntymispäivä</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Erääntymisaika</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Jos määritetty, Send erääntyy määritettynä ajankohtana.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Erääntynyt</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Käyttökertojen enimmäismäärä</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Jos määritetty, käyttäjät eivät voi avata Sendiä käyttökertojen enimmäismäärän täytyttyä.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Käyttökertojen enimmäismäärä saavutettu</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Nykyinen käyttökertojen määrä</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Uusi salasana</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Halutessasi, vaadi käyttäjiä syöttämään salasana Sendin avaamiseksi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Poista salasana</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Haluatko varmasti poistaa salasanan?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Poistetaan salasana</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Salasana on poistettu.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Yksityiset muistiinpanot tästä Sendistä.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Poista Send käytöstä, jottei kukaan voi avata sitä.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Tililläsi ei ole Sendejä.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Kopioi linkki</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Jaa linkki</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Send-linkki</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Hae Sendeistä</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Muokkaa Sendiä</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Lisää Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Haluatko varmasti poistaa Sendin?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Send on poistettu.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send on päivitetty.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Uusi Send on luotu.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 päivä</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 päivää</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 päivää</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 päivää</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 päivää</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Mukautettu</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Jaa Send tallennettaessa.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>Yrityksen käytännön vuoksi voit poistaa vain olemassa olevan Sendin.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>Tietoja Sendistä</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Piilota sähköpostiosoitteeni vastaanottajilta.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Yksi tai useampi organisaatiokäytäntö vaikuttaa Send-asetuksiisi.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Ilmaiset tilit on rajoitettu tekstin jakoon. Tiedostojen käyttö Sendeissä vaatii Premium-jäsenyyden.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Sinun on vahvistettava sähköpostiosoitteesi, jotta voit käyttää tiedostoja Sendeissä.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

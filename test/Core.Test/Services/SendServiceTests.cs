@@ -21,6 +21,8 @@ using Bit.Core.Models.Request;
 using Bit.Core.Test.AutoFixture;
 using System.Linq.Expressions;
 using Bit.Core.Models.View;
+using Bit.Core.Exceptions;
+using NSubstitute.ExceptionExtensions;
 
 namespace Bit.Core.Test.Services
 {
@@ -172,16 +174,15 @@ namespace Bit.Core.Test.Services
             send.Id = null;
             sutProvider.GetDependency<IUserService>().GetUserIdAsync().Returns(userId);
             sutProvider.GetDependency<IApiService>().PostSendAsync(Arg.Any<SendRequest>()).Returns(response);
-            sutProvider.GetDependency<IApiService>().PostSendFileAsync(Arg.Any<MultipartFormDataContent>()).Returns(response);
 
-            var fileContentBytes = Encoding.UTF8.GetBytes("This is the file content");
+            var fileContentBytes = new EncByteArray(Encoding.UTF8.GetBytes("This is the file content"));
 
             await sutProvider.Sut.SaveWithServerAsync(send, fileContentBytes);
 
             Predicate<SendRequest> sendRequestPredicate = r =>
             {
                 // Note Send -> SendRequest tested in SendRequestTests
-                TestHelper.AssertPropertyEqual(new SendRequest(send), r);
+                TestHelper.AssertPropertyEqual(new SendRequest(send, fileContentBytes.Buffer?.LongLength), r);
                 return true;
             };
 
@@ -200,40 +201,43 @@ namespace Bit.Core.Test.Services
 
         [Theory]
         [InlineCustomAutoData(new[] { typeof(SutProviderCustomization), typeof(FileSendCustomization) })]
-        public async Task SaveWithServerAsync_NewFileSend_Success(SutProvider<SendService> sutProvider, string userId, SendResponse response, Send send)
+        public async Task SaveWithServerAsync_NewFileSend_AzureUpload_Success(SutProvider<SendService> sutProvider, string userId, SendFileUploadDataResponse response, Send send)
         {
             send.Id = null;
+            response.FileUploadType = FileUploadType.Azure;
             sutProvider.GetDependency<IUserService>().GetUserIdAsync().Returns(userId);
-            sutProvider.GetDependency<IApiService>().PostSendAsync(Arg.Any<SendRequest>()).Returns(response);
-            sutProvider.GetDependency<IApiService>().PostSendFileAsync(Arg.Any<MultipartFormDataContent>()).Returns(response);
+            sutProvider.GetDependency<IApiService>().PostFileTypeSendAsync(Arg.Any<SendRequest>()).Returns(response);
 
-            var fileContentBytes = Encoding.UTF8.GetBytes("This is the file content");
+            var fileContentBytes = new EncByteArray(Encoding.UTF8.GetBytes("This is the file content"));
 
             await sutProvider.Sut.SaveWithServerAsync(send, fileContentBytes);
-
-            Predicate<MultipartFormDataContent> formDataPredicate = fd =>
-            {
-                Assert.Equal(2, fd.Count()); // expect a request and file content
-
-                var expectedRequest = JsonConvert.SerializeObject(new SendRequest(send));
-                var actualRequest = fd.First().ReadAsStringAsync().GetAwaiter().GetResult();
-                Assert.Equal(expectedRequest, actualRequest);
-
-                var actualFileContent = fd.Skip(1).First().ReadAsByteArrayAsync().GetAwaiter().GetResult();
-                Assert.Equal(fileContentBytes, actualFileContent);
-                return true;
-            };
 
             switch (send.Type)
             {
                 case SendType.File:
-                    await sutProvider.GetDependency<IApiService>().Received(1)
-                        .PostSendFileAsync(Arg.Is<MultipartFormDataContent>(f => formDataPredicate(f)));
+                    await sutProvider.GetDependency<IFileUploadService>().Received(1).UploadSendFileAsync(response, send.File.FileName, fileContentBytes);
                     break;
                 case SendType.Text:
                 default:
                     throw new Exception("Untested send type");
             }
+        }
+
+        [Theory]
+        [InlineCustomAutoData(new[] { typeof(SutProviderCustomization), typeof(FileSendCustomization) })]
+        public async Task SaveWithServerAsync_NewFileSend_LegacyFallback_Success(SutProvider<SendService> sutProvider, string userId, Send send, SendResponse response)
+        {
+            send.Id = null;
+            sutProvider.GetDependency<IUserService>().GetUserIdAsync().Returns(userId);
+            var error = new ErrorResponse(null, System.Net.HttpStatusCode.NotFound);
+            sutProvider.GetDependency<IApiService>().PostFileTypeSendAsync(Arg.Any<SendRequest>()).Throws(new ApiException(error));
+            sutProvider.GetDependency<IApiService>().PostSendFileAsync(Arg.Any<MultipartFormDataContent>()).Returns(response);
+
+            var fileContentBytes = new EncByteArray(Encoding.UTF8.GetBytes("This is the file content"));
+
+            await sutProvider.Sut.SaveWithServerAsync(send, fileContentBytes);
+
+            await sutProvider.GetDependency<IApiService>().Received(1).PostSendFileAsync(Arg.Any<MultipartFormDataContent>());
         }
 
         [Theory]
@@ -249,7 +253,7 @@ namespace Bit.Core.Test.Services
             Predicate<SendRequest> sendRequestPredicate = r =>
             {
                 // Note Send -> SendRequest tested in SendRequestTests
-                TestHelper.AssertPropertyEqual(new SendRequest(send), r);
+                TestHelper.AssertPropertyEqual(new SendRequest(send, null), r);
                 return true;
             };
 
@@ -335,10 +339,12 @@ namespace Bit.Core.Test.Services
 
             byte[] getPbkdf(string password, byte[] key) =>
                 prefixBytes.Concat(Encoding.UTF8.GetBytes(password)).Concat(key).ToArray();
-            CipherString encryptBytes(byte[] secret, SymmetricCryptoKey key) =>
-                new CipherString($"{prefix}{Convert.ToBase64String(secret)}{Convert.ToBase64String(key.Key)}");
-            CipherString encrypt(string secret, SymmetricCryptoKey key) =>
-                new CipherString($"{prefix}{secret}{Convert.ToBase64String(key.Key)}");
+            EncString encryptBytes(byte[] secret, SymmetricCryptoKey key) =>
+                new EncString($"{prefix}{Convert.ToBase64String(secret)}{Convert.ToBase64String(key.Key)}");
+            EncString encrypt(string secret, SymmetricCryptoKey key) =>
+                new EncString($"{prefix}{secret}{Convert.ToBase64String(key.Key)}");
+            EncByteArray encryptFileBytes(byte[] secret, SymmetricCryptoKey key) =>
+                new EncByteArray(secret.Concat(key.Key).ToArray());
 
             sutProvider.GetDependency<ICryptoFunctionService>().Pbkdf2Async(Arg.Any<string>(), Arg.Any<byte[]>(), Arg.Any<CryptoHashAlgorithm>(), Arg.Any<int>())
                 .Returns(info => getPbkdf((string)info[0], (byte[])info[1]));
@@ -346,12 +352,14 @@ namespace Bit.Core.Test.Services
                 .Returns(info => encryptBytes((byte[])info[0], (SymmetricCryptoKey)info[1]));
             sutProvider.GetDependency<ICryptoService>().EncryptAsync(Arg.Any<string>(), Arg.Any<SymmetricCryptoKey>())
                 .Returns(info => encrypt((string)info[0], (SymmetricCryptoKey)info[1]));
+            sutProvider.GetDependency<ICryptoService>().EncryptToBytesAsync(Arg.Any<byte[]>(), Arg.Any<SymmetricCryptoKey>())
+                .Returns(info => encryptFileBytes((byte[])info[0], (SymmetricCryptoKey)info[1]));
 
             var (send, encryptedFileData) = await sutProvider.Sut.EncryptAsync(view, fileData, view.Password, privateKey);
 
             TestHelper.AssertPropertyEqual(view, send, "Password", "Key", "Name", "Notes", "Text", "File",
                 "AccessCount", "AccessId", "CryptoKey", "RevisionDate", "DeletionDate", "ExpirationDate", "UrlB64Key",
-                "MaxAccessCountReached", "Expired", "PendingDelete");
+                "MaxAccessCountReached", "Expired", "PendingDelete", "HasPassword", "DisplayDate");
             Assert.Equal(Convert.ToBase64String(getPbkdf(view.Password, view.Key)), send.Password);
             TestHelper.AssertPropertyEqual(encryptBytes(view.Key, privateKey), send.Key);
             TestHelper.AssertPropertyEqual(encrypt(view.Name, view.CryptoKey), send.Name);
@@ -366,7 +374,7 @@ namespace Bit.Core.Test.Services
                 case SendType.File:
                     // Only set filename
                     TestHelper.AssertPropertyEqual(encrypt(view.File.FileName, view.CryptoKey), send.File.FileName);
-                    TestHelper.AssertPropertyEqual(encryptBytes(fileData, view.CryptoKey), encryptedFileData);
+                    Assert.Equal(encryptFileBytes(fileData, view.CryptoKey).Buffer, encryptedFileData.Buffer);
                     break;
                 default:
                     throw new Exception("Untested send type");

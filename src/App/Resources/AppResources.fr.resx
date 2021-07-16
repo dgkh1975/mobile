@@ -172,7 +172,7 @@
     <comment>Message shown when interacting with the server</comment>
   </data>
   <data name="DoYouReallyWantToDelete" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir supprimer ? Cette action ne peut pas être annulée.</value>
+    <value>Êtes-vous sûr de vouloir supprimer ? Cette action ne peut pas être annulée.</value>
     <comment>Confirmation alert message when deleteing something.</comment>
   </data>
   <data name="Edit" xml:space="preserve">
@@ -273,7 +273,7 @@
     <comment>The log out button text (verb).</comment>
   </data>
   <data name="LogoutConfirmation" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir vous déconnecter ?</value>
+    <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
   </data>
   <data name="MasterPassword" xml:space="preserve">
     <value>Mot de passe maître</value>
@@ -625,7 +625,7 @@
     <value>Nous vous avons envoyé un e-mail avec l'indice de votre mot de passe.</value>
   </data>
   <data name="PasswordOverrideAlert" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir écraser le mot de passe existant ?</value>
+    <value>Êtes-vous sûr de vouloir écraser le mot de passe existant ?</value>
   </data>
   <data name="PushNotificationAlert" xml:space="preserve">
     <value>Bitwarden conserve automatiquement votre coffre synchronisé en utilisant des notifications push. Pour la meilleure expérience possible, veuillez choisir "Ok" sur la boîte de dialogue suivante (activation des notifications push).</value>
@@ -768,7 +768,7 @@
     <value>Voulez-vous remplir automatiquement ou afficher cet élément ?</value>
   </data>
   <data name="BitwardenAutofillServiceMatchConfirm" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir remplir automatiquement cet élément ? Il ne correspond pas complètement à « {0} ».</value>
+    <value>Êtes-vous sûr de vouloir remplir automatiquement cet élément ? Il ne correspond pas complètement à « {0} ».</value>
   </data>
   <data name="MatchingItems" xml:space="preserve">
     <value>Aucun élément correspondant</value>
@@ -858,7 +858,7 @@
     <comment>Message shown when downloading a file</comment>
   </data>
   <data name="AttachmentLargeWarning" xml:space="preserve">
-    <value>Cette pièce jointe est d'une taille de {0}. Êtes-sûr(e) de vouloir la télécharger sur votre appareil ?</value>
+    <value>Cette pièce jointe est d'une taille de {0}. Êtes-sûr de vouloir la télécharger sur votre appareil ?</value>
     <comment>The placeholder will show the file size of the attachment. Ex "25 MB"</comment>
   </data>
   <data name="AuthenticatorKey" xml:space="preserve">
@@ -1514,7 +1514,7 @@
     <value>Quitter</value>
   </data>
   <data name="ExitConfirmation" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir quitter Bitwarden ?</value>
+    <value>Êtes-vous sûr de vouloir quitter Bitwarden ?</value>
   </data>
   <data name="PINRequireMasterPasswordRestart" xml:space="preserve">
     <value>Voulez-vous avoir à déverrouiller avec votre mot de passe maître lorsque l'application est redémarrée ?</value>
@@ -1602,11 +1602,14 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Cet export contient les données de votre coffre dans un format non chiffré. Vous ne devriez ni le stocker ni l'envoyer via des canaux non sécurisés (tel que par e-mail). Supprimez-le immédiatement après l'avoir utilisé.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
-    <value>This export encrypts your data using your account's encryption key. If you ever rotate your account's encryption key you should export again since you will not be able to decrypt this export file.</value>
+  <data name="EncExportKeyWarning" xml:space="preserve">
+    <value>Cet export chiffre vos données en utilisant la clé de chiffrement de votre compte. Si jamais vous modifiez la clé de chiffrement de votre compte, vous devriez exporter à nouveau car vous ne pourrez pas déchiffrer ce fichier.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Les clés de chiffrement du compte sont spécifiques à chaque utilisateur Bitwarden. Vous ne pouvez donc pas importer d'export chiffré dans un compte différent.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
-    <value>Confirm Vault Export</value>
+    <value>Confirmer l'export du coffre</value>
     <comment>Title for the alert to confirm vault exports.</comment>
   </data>
   <data name="Warning" xml:space="preserve">
@@ -1670,7 +1673,7 @@
     <comment>(action prompt) Label for the search text field when viewing the trash folder</comment>
   </data>
   <data name="DoYouReallyWantToPermanentlyDeleteCipher" xml:space="preserve">
-    <value>Êtes-vous sûr(e) de vouloir supprimer définitivement ? Cette action ne peut pas être annulée.</value>
+    <value>Êtes-vous sûr de vouloir supprimer définitivement ? Cette action ne peut pas être annulée.</value>
     <comment>Confirmation alert message when permanently deleteing a cipher.</comment>
   </data>
   <data name="DoYouReallyWantToRestoreCipher" xml:space="preserve">
@@ -1682,10 +1685,10 @@
     <comment>Confirmation alert message when soft-deleting a cipher.</comment>
   </data>
   <data name="BiometricInvalidated" xml:space="preserve">
-    <value>Changement biométrique détecté, connectez-vous à l'aide du mot de passe maître pour l'activer à nouveau.</value>
+    <value>Le déverrouillage biométrique est désactivé en attendant la vérification du mot de passe maître.</value>
   </data>
   <data name="BiometricInvalidatedExtension" xml:space="preserve">
-    <value>Biometric unlock for autofill disabled pending verification of master password.</value>
+    <value>Le déverrouillage biométrique pour le remplissage automatique est désactivé en attendant la vérification du mot de passe maître.</value>
   </data>
   <data name="EnableSyncOnRefresh" xml:space="preserve">
     <value>Activer la synchronisation lors de l'actualisation</value>
@@ -1754,16 +1757,16 @@
     <value>Politique de confidentialité</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
-    <value>Bitwarden requiert votre attention - Activer "Superposition" dans "Services d'auto-remplissage" depuis les paramètres de Bitwarden</value>
+    <value>Bitwarden requiert votre attention - Activer "Superposition" dans "Services de remplissage automatique" depuis les paramètres de Bitwarden</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
     <value>Services de remplissage automatique</value>
   </data>
   <data name="InlineAutofill" xml:space="preserve">
-    <value>Utiliser le remplissage automatique en ligne</value>
+    <value>Utiliser le remplissage automatique intégré</value>
   </data>
   <data name="InlineAutofillDescription" xml:space="preserve">
-    <value>Utilisez le remplissage automatique en ligne si votre IME (clavier) sélectionné le supporte. Si votre configuration n'est pas prise en charge (ou si cette option est désactivée), la superposition de remplissage automatique par défaut sera utilisée.</value>
+    <value>Utilisez le remplissage automatique intégré si votre méthode de saisie (clavier) sélectionnée le supporte. Si votre configuration n'est pas prise en charge (ou si cette option est désactivée), le remplissage automatique par défaut sera utilisé.</value>
   </data>
   <data name="Accessibility" xml:space="preserve">
     <value>Utiliser l'accessibilité</value>
@@ -1772,30 +1775,228 @@
     <value>Utilisez le service d'accessibilité de Bitwarden pour remplir automatiquement vos identifiants à travers les applications et le web. Lorsqu'il est activé, nous afficherons une popup lorsque des champs de connexion sont sélectionnés.</value>
   </data>
   <data name="AccessibilityDescription2" xml:space="preserve">
-    <value>Utilisez le service d'accessibilité de Bitwarden pour remplir automatiquement vos identifiants à travers les applications et le Web. (Nécessite également l'activation de la Superposition)</value>
+    <value>Utilisez le service d'accessibilité de Bitwarden pour remplir automatiquement vos identifiants à travers les applications et le web. (Nécessite également l'activation de la superposition)</value>
   </data>
   <data name="AccessibilityDescription3" xml:space="preserve">
-    <value>Utilisez le service d'accessibilité Bitwarden pour utiliser la tuile d'Action Rapide de Remplissage Automatique, et/ou afficher une popup en utilisant la Superposition (si activée).</value>
+    <value>Utilisez le service d'accessibilité Bitwarden pour utiliser la tuile de remplissage automatique rapide et/ou afficher une popup en utilisant la superposition (si activée).</value>
   </data>
   <data name="AccessibilityDescription4" xml:space="preserve">
-    <value>Requis pour utiliser la tuile de remplissage rapide automatique ou pour améliorer le service de remplissage automatique en utilisant la Superposition (si activée).</value>
+    <value>Requis pour utiliser la tuile de remplissage automatique rapide ou pour améliorer le service de remplissage automatique en utilisant la superposition (si activée).</value>
   </data>
   <data name="DrawOver" xml:space="preserve">
-    <value>Utiliser la Superposition</value>
+    <value>Utiliser la superposition</value>
   </data>
   <data name="DrawOverDescription" xml:space="preserve">
-    <value>Lorsque cette option est activée, permet au service d'accessibilité de Bitwarden d'afficher une popup lorsque les champs d'identifiants sont sélectionnés.</value>
+    <value>Activer cette option permet au service d'accessibilité de Bitwarden d'afficher une popup lorsque les champs d'identifiants sont sélectionnés.</value>
   </data>
   <data name="DrawOverDescription2" xml:space="preserve">
-    <value>Si activé, le service d'accessibilité de Bitwarden affichera une popup lorsque les champs d'identifiants seront sélectionnés pour aider à remplir automatiquement vos identifiants.</value>
+    <value>Si cette option est activée, le service d'accessibilité de Bitwarden affichera une popup lorsque des champs d'identifiants sont sélectionnés pour aider à remplir automatiquement vos identifiants.</value>
   </data>
   <data name="DrawOverDescription3" xml:space="preserve">
-    <value>Si activé, l'accessibilité affichera une popup pour améliorer le service de remplissage automatique pour les anciennes applications qui ne prennent pas en charge le cadre de remplissage automatique d'Android.</value>
+    <value>Si cette option est activée, l'accessibilité affichera une popup pour améliorer le service de remplissage automatique pour les anciennes applications qui ne prennent pas en charge les outils de remplissage automatique d'Android.</value>
   </data>
   <data name="PersonalOwnershipSubmitError" xml:space="preserve">
-    <value>Due to an Enterprise Policy, you are restricted from saving items to your personal vault. Change the Ownership option to an organization and choose from available Collections.</value>
+    <value>En raison d'une Politique d'Entreprise, il vous est interdit d'enregistrer des objets dans votre coffre personnel. Changez l'option Propriété pour une organisation et choisissez parmi les Collections disponibles.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Une politique d'organisation affecte vos options de propriété.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Tous les Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Un nom convivial pour décrire ce Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Texte</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Le texte que vous voulez envoyer.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Lors de l'accès à ce Send, masquer le texte par défaut</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Le fichier que vous voulez envoyer.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Date de suppression</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Heure de suppression</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Le Send sera définitivement supprimé à la date et heure spécifiées.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>En attente de suppression</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Date d'expiration</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Heure d'expiration</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Si défini, l'accès à ce Send expirera à la date et heure spécifiées.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expiré</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Nombre maximum d'accès</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Si défini, les utilisateurs ne seront plus en mesure d'accéder à ce Send une fois que le nombre maximum d'accès sera atteint.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Nombre maximum d'accès atteint</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Nombre d'accès actuel</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Vous pouvez, si vous le souhaitez, exiger un mot de passe pour accéder à ce Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Supprimer le mot de passe</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer le mot de passe ?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Suppression du mot de passe en cours</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Le mot de passe a été supprimé.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Notes privées à propos de ce Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Désactiver ce Send pour que personne ne puisse y accéder.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Il n’y a aucun Send dans votre compte.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Copier le lien</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Partager le lien</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Lien du Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Rechercher dans les Sends</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Modifier le Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Ajouter un Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce Send ?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Le Send a été supprimé.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send mis à jour.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Nouveau Send créé.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 jour</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 jours</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 jours</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 jours</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 jours</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Personnalisé</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Partager ce Send lors de l'enregistrement.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>En raison d'une politique d'entreprise, vous ne pouvez que supprimer un Send existant.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>À propos de Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Cacher mon adresse e-mail aux destinataires.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Une ou plusieurs politiques d'organisation affectent vos options Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Les comptes gratuits sont limités au partage de texte. Un abonnement premium est requis pour utiliser les fichiers avec Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Vous devez vérifier votre e-mail pour utiliser des fichiers avec Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

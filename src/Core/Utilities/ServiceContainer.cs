@@ -23,14 +23,13 @@ namespace Bit.Core.Utilities
             var platformUtilsService = Resolve<IPlatformUtilsService>("platformUtilsService");
             var storageService = Resolve<IStorageService>("storageService");
             var secureStorageService = Resolve<IStorageService>("secureStorageService");
-            var cryptoPrimitiveService = Resolve<ICryptoPrimitiveService>("cryptoPrimitiveService");
             var i18nService = Resolve<II18nService>("i18nService");
             var messagingService = Resolve<IMessagingService>("messagingService");
+            var cryptoFunctionService = Resolve<ICryptoFunctionService>("cryptoFunctionService");
+            var cryptoService = Resolve<ICryptoService>("cryptoService");
             SearchService searchService = null;
 
             var stateService = new StateService();
-            var cryptoFunctionService = new PclCryptoFunctionService(cryptoPrimitiveService);
-            var cryptoService = new CryptoService(storageService, secureStorageService, cryptoFunctionService);
             var tokenService = new TokenService(storageService);
             var apiService = new ApiService(tokenService, platformUtilsService, (bool expired) =>
             {
@@ -40,12 +39,15 @@ namespace Bit.Core.Utilities
             var appIdService = new AppIdService(storageService);
             var userService = new UserService(storageService, tokenService);
             var settingsService = new SettingsService(userService, storageService);
-            var cipherService = new CipherService(cryptoService, userService, settingsService, apiService,
+            var fileUploadService = new FileUploadService(apiService);
+            var cipherService = new CipherService(cryptoService, userService, settingsService, apiService, fileUploadService,
                 storageService, i18nService, () => searchService, clearCipherCacheKey, allClearCipherCacheKeys);
             var folderService = new FolderService(cryptoService, userService, apiService, storageService,
                 i18nService, cipherService);
             var collectionService = new CollectionService(cryptoService, userService, storageService, i18nService);
-            searchService = new SearchService(cipherService);
+            var sendService = new SendService(cryptoService, userService, apiService, fileUploadService, storageService,
+                i18nService, cryptoFunctionService);
+            searchService = new SearchService(cipherService, sendService);
             var vaultTimeoutService = new VaultTimeoutService(cryptoService, userService, platformUtilsService, 
                 storageService, folderService, cipherService, collectionService, searchService, messagingService, tokenService,
                 null, (expired) =>
@@ -54,8 +56,6 @@ namespace Bit.Core.Utilities
                     return Task.FromResult(0);
                 });
             var policyService = new PolicyService(storageService, userService);
-            var sendService = new SendService(cryptoService, userService, apiService, storageService, i18nService,
-                cryptoFunctionService);
             var syncService = new SyncService(userService, apiService, settingsService, folderService,
                 cipherService, cryptoService, collectionService, storageService, messagingService, policyService, sendService,
                 (bool expired) =>
@@ -68,14 +68,12 @@ namespace Bit.Core.Utilities
             var totpService = new TotpService(storageService, cryptoFunctionService);
             var authService = new AuthService(cryptoService, apiService, userService, tokenService, appIdService,
                 i18nService, platformUtilsService, messagingService, vaultTimeoutService);
-            var exportService = new ExportService(folderService, cipherService);
+            var exportService = new ExportService(folderService, cipherService, cryptoService);
             var auditService = new AuditService(cryptoFunctionService, apiService);
             var environmentService = new EnvironmentService(apiService, storageService);
             var eventService = new EventService(storageService, apiService, userService, cipherService);
 
             Register<IStateService>("stateService", stateService);
-            Register<ICryptoFunctionService>("cryptoFunctionService", cryptoFunctionService);
-            Register<ICryptoService>("cryptoService", cryptoService);
             Register<ITokenService>("tokenService", tokenService);
             Register<IApiService>("apiService", apiService);
             Register<IAppIdService>("appIdService", appIdService);
@@ -84,6 +82,7 @@ namespace Bit.Core.Utilities
             Register<ICipherService>("cipherService", cipherService);
             Register<IFolderService>("folderService", folderService);
             Register<ICollectionService>("collectionService", collectionService);
+            Register<ISendService>("sendService", sendService);
             Register<ISearchService>("searchService", searchService);
             Register<IPolicyService>("policyService", policyService);
             Register<ISyncService>("syncService", syncService);

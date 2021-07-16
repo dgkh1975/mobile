@@ -708,7 +708,7 @@
     <value>Zobraziť položku</value>
   </data>
   <data name="WebVault" xml:space="preserve">
-    <value>bitwarden webový trezor</value>
+    <value>Webový trezor Bitwarden</value>
   </data>
   <data name="Lost2FAApp" xml:space="preserve">
     <value>Stratili ste overovaciu aplikáciu?</value>
@@ -1602,11 +1602,14 @@
   <data name="ExportVaultWarning" xml:space="preserve">
     <value>Tento export obsahuje vaše dáta v nešifrovanom formáte. Nemali by ste ich ukladať, ani posielať cez nezabezpečené kanály (napr. email). Okamžite ho odstráňte, keď ho prestanete používať.</value>
   </data>
-  <data name="EncExportVaultWarning" xml:space="preserve">
-    <value>This export encrypts your data using your account's encryption key. If you ever rotate your account's encryption key you should export again since you will not be able to decrypt this export file.</value>
+  <data name="EncExportKeyWarning" xml:space="preserve">
+    <value>Tento export zašifruje vaše údaje pomocou šifrovacieho kľúča vášho účtu. Ak niekedy budete rotovať šifrovací kľúč svojho účtu, mali by ste exportovať znova, pretože nebudete môcť dešifrovať tento exportovaný súbor.</value>
+  </data>
+  <data name="EncExportAccountWarning" xml:space="preserve">
+    <value>Šifrovacie kľúče účtu sú jedinečné pre každý používateľský účet Bitwarden, takže nemôžete importovať šifrovaný export do iného účtu.</value>
   </data>
   <data name="ExportVaultConfirmationTitle" xml:space="preserve">
-    <value>Confirm Vault Export</value>
+    <value>Potvrdiť export trezoru</value>
     <comment>Title for the alert to confirm vault exports.</comment>
   </data>
   <data name="Warning" xml:space="preserve">
@@ -1685,7 +1688,7 @@
     <value>Bola zaznamenaná zmena biometrických údajov, prihláste za svojím hlavným heslom aby ste opäť povolili prihlásenie.</value>
   </data>
   <data name="BiometricInvalidatedExtension" xml:space="preserve">
-    <value>Biometric unlock for autofill disabled pending verification of master password.</value>
+    <value>Biometrické odblokovanie pre automatické dopĺňanie je deaktivované až do overenia hlavného hesla.</value>
   </data>
   <data name="EnableSyncOnRefresh" xml:space="preserve">
     <value>Povoliť synchronizáciu pri obnovení</value>
@@ -1754,48 +1757,246 @@
     <value>Zásady ochrany osobných údajov</value>
   </data>
   <data name="AccessibilityDrawOverPermissionAlert" xml:space="preserve">
-    <value>Bitwarden needs attention - Enable "Draw-Over" in "Auto-fill Services" from Bitwarden Settings</value>
+    <value>Bitwarden vyžaduje vašu pozornosť - z nastavení aplikácie Bitwarden povoľte "Zobrazenie cez iné aplikácie" v "Služba automatického vypĺňania"</value>
   </data>
   <data name="AutofillServices" xml:space="preserve">
-    <value>Auto-fill Services</value>
+    <value>Služba automatického vypĺňania</value>
   </data>
   <data name="InlineAutofill" xml:space="preserve">
-    <value>Use Inline Autofill</value>
+    <value>Použite vnorené automatické vypĺňanie</value>
   </data>
   <data name="InlineAutofillDescription" xml:space="preserve">
-    <value>Use inline autofill if your selected IME (keyboard) supports it. If your configuration is not supported (or this option is disabled), the default Autofill overlay will be used.</value>
+    <value>Ak to podporuje váš vybratý editor IME (klávesnica), použite vnorené automatické dopĺňanie. Ak to vaša konfigurácia nepodporuje (alebo je táto voľba zakázaná), bude použité predvolené automatické vyplnenie.</value>
   </data>
   <data name="Accessibility" xml:space="preserve">
-    <value>Use Accessibility</value>
+    <value>Použiť dostupnosť</value>
   </data>
   <data name="AccessibilityDescription" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to auto-fill your logins across apps and the web. When enabled, we'll display a popup when login fields are selected.</value>
+    <value>Použite službu zjednodušenia prístupu Bitwardenu pre automatické vypĺňanie prihlasovacích údajov v aplikáciách a na webe. Ak je táto možnosť povolená, pri výbere prihlasovacích polí sa zobrazí vyskakovacie okno.</value>
   </data>
   <data name="AccessibilityDescription2" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to auto-fill your logins across apps and the web. (Requires Draw-Over to be enabled as well)</value>
+    <value>Použite službu zjednodušenia prístupu Bitwardenu pre automatické vypĺňanie prihlasovacích údajov v aplikáciách a na webe. (Vyžaduje sa povolenie zobrazenia cez iné aplikácie)</value>
   </data>
   <data name="AccessibilityDescription3" xml:space="preserve">
-    <value>Use the Bitwarden Accessibility Service to use the Autofill Quick-Action Tile, and/or show a popup using Draw-Over (if enabled).</value>
+    <value>Použite službu zjednodušenia prístupu Bitwardenu pre použitie automatického vypĺňania cez dlaždicu a/alebo zobraziť vyskakovacie okno pomocou zobrazenia cez iné aplikácie (ak je povolené).</value>
   </data>
   <data name="AccessibilityDescription4" xml:space="preserve">
-    <value>Required to use the Autofill Quick-Action Tile, or to augment the Autofill Service by using Draw-Over (if enabled).</value>
+    <value>Vyžaduje sa, aby ste použili dlaždicu rýchlej akcie automatického dopĺňania, alebo aby ste rozšírili službu automatického dopĺňania pomocou funkcie zobrazenia cez iné aplikácie (ak je povolená).</value>
   </data>
   <data name="DrawOver" xml:space="preserve">
-    <value>Use Draw-Over</value>
+    <value>Použiť zobrazenie cez iné aplikácie</value>
   </data>
   <data name="DrawOverDescription" xml:space="preserve">
-    <value>When enabled, allows the Bitwarden Accessibility Service to display a popup when login fields are selected.</value>
+    <value>Ak je táto možnosť povolená, umožňuje službe zjednodušenia prístupu Bitwardenu zobraziť vyskakovacie okno po klepnutí do prihlasovacieho poľa.</value>
   </data>
   <data name="DrawOverDescription2" xml:space="preserve">
-    <value>If enabled, the Bitwarden Accessibility Service will display a popup when login fields are selected to assist with auto-filling your logins.</value>
+    <value>Ak je táto možnosť povolená, umožňuje službe zjednodušenia prístupu Bitwardenu zobraziť vyskakovacie okno po klepnutí do prihlasovacieho poľa a pomáha automaticky vyplniť prihlasovacie polia.</value>
   </data>
   <data name="DrawOverDescription3" xml:space="preserve">
-    <value>If enabled, accessibility will show a popup to augment the Autofill Service for older apps that don't support the Android Autofill Framework.</value>
+    <value>Ak je táto možnosť povolená, dostupnosť zobrazí vyskakovacie okno na rozšírenie služby automatického dopĺňania pre staršie aplikácie, ktoré nepodporujú Android Autofill Framework pre zjednodušenie vypĺňania prihlasovacích údajov.</value>
   </data>
   <data name="PersonalOwnershipSubmitError" xml:space="preserve">
-    <value>Due to an Enterprise Policy, you are restricted from saving items to your personal vault. Change the Ownership option to an organization and choose from available Collections.</value>
+    <value>Z dôvodu podnikovej politiky máte obmedzené ukladanie položiek do osobného trezora. Zmeňte možnosť vlastníctvo na organizáciu a vyberte si z dostupných zbierok.</value>
   </data>
   <data name="PersonalOwnershipPolicyInEffect" xml:space="preserve">
-    <value>An organization policy is affecting your ownership options.</value>
+    <value>Politika organizácie ovplyvňuje vaše možnosti vlastníctva.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AllSends" xml:space="preserve">
+    <value>Všetky Sendy</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Sends" xml:space="preserve">
+    <value>Sendy</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NameInfo" xml:space="preserve">
+    <value>Priateľský názov pre popísanie tohto Sendu.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="TypeTextInfo" xml:space="preserve">
+    <value>Text, ktorý chcete odoslať.</value>
+  </data>
+  <data name="HideTextByDefault" xml:space="preserve">
+    <value>Pri prístupe k Sendu, predvolene skryť text</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="TypeFile" xml:space="preserve">
+    <value>Súbor</value>
+  </data>
+  <data name="TypeFileInfo" xml:space="preserve">
+    <value>Súbor, ktorý chcete odoslať.</value>
+  </data>
+  <data name="DeletionDate" xml:space="preserve">
+    <value>Dátum odstránenia</value>
+  </data>
+  <data name="DeletionTime" xml:space="preserve">
+    <value>Čas odstránenia</value>
+  </data>
+  <data name="DeletionDateInfo" xml:space="preserve">
+    <value>Send bude natrvalo odstránený v zadaný dátum a čas.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PendingDelete" xml:space="preserve">
+    <value>Čakajúce odstránenie</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Dátum exspirácie</value>
+  </data>
+  <data name="ExpirationTime" xml:space="preserve">
+    <value>Čas exspirácie</value>
+  </data>
+  <data name="ExpirationDateInfo" xml:space="preserve">
+    <value>Ak je nastavené, prístup k tomuto Sendu vyprší v zadaný dátum a čas.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expirované</value>
+  </data>
+  <data name="MaximumAccessCount" xml:space="preserve">
+    <value>Maximálny počet prístupov</value>
+  </data>
+  <data name="MaximumAccessCountInfo" xml:space="preserve">
+    <value>Ak je nastavené, používatelia už nebudú mať prístup k tomuto Sendu po dosiahnutí maximálneho počtu prístupov.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="MaximumAccessCountReached" xml:space="preserve">
+    <value>Bol dosiahnutý maximálny počet prístupov</value>
+  </data>
+  <data name="CurrentAccessCount" xml:space="preserve">
+    <value>Súčasný počet prístupov</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nové heslo</value>
+  </data>
+  <data name="PasswordInfo" xml:space="preserve">
+    <value>Voliteľne môžete vyžadovať heslo pre používateľov na prístup k tomuto Sendu.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="RemovePassword" xml:space="preserve">
+    <value>Odstrániť heslo</value>
+  </data>
+  <data name="AreYouSureRemoveSendPassword" xml:space="preserve">
+    <value>Naozaj chcete odstrániť heslo?</value>
+  </data>
+  <data name="RemovingSendPassword" xml:space="preserve">
+    <value>Odstraňuje sa heslo</value>
+  </data>
+  <data name="SendPasswordRemoved" xml:space="preserve">
+    <value>Heslo bolo odstránené.</value>
+  </data>
+  <data name="NotesInfo" xml:space="preserve">
+    <value>Zabezpečená poznámka o tomto Sende.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="DisableSend" xml:space="preserve">
+    <value>Vypnúť tento Send, aby k nemu nikto nemal prístup.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NoSends" xml:space="preserve">
+    <value>Vo vašom účte nie je žiadny Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddASend" xml:space="preserve">
+    <value>Add a Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Kopírovať odkaz</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Zdieľať odkaz</value>
+  </data>
+  <data name="SendLink" xml:space="preserve">
+    <value>Odkaz na Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SearchSends" xml:space="preserve">
+    <value>Hľadať Sendy</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="EditSend" xml:space="preserve">
+    <value>Upraviť Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AddSend" xml:space="preserve">
+    <value>Pridať Send</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AreYouSureDeleteSend" xml:space="preserve">
+    <value>Naozaj chcete odstrániť tento Send?</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDeleted" xml:space="preserve">
+    <value>Send bol odstránený.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendUpdated" xml:space="preserve">
+    <value>Send bol aktualizovaný.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="NewSendCreated" xml:space="preserve">
+    <value>Nový Send bol vytvorený.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 deň</value>
+  </data>
+  <data name="TwoDays" xml:space="preserve">
+    <value>2 dni</value>
+  </data>
+  <data name="ThreeDays" xml:space="preserve">
+    <value>3 dni</value>
+  </data>
+  <data name="SevenDays" xml:space="preserve">
+    <value>7 dní</value>
+  </data>
+  <data name="ThirtyDays" xml:space="preserve">
+    <value>30 dní</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Vlastné</value>
+  </data>
+  <data name="ShareOnSave" xml:space="preserve">
+    <value>Po uložení zdieľať tento Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendDisabledWarning" xml:space="preserve">
+    <value>Z dôvodu podnikovej politiky môžete odstrániť iba existujúci Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="AboutSend" xml:space="preserve">
+    <value>O Sende</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="HideEmail" xml:space="preserve">
+    <value>Skryť moju emailovú adresu pred príjemcami.</value>
+  </data>
+  <data name="SendOptionsPolicyInEffect" xml:space="preserve">
+    <value>Jedno alebo viac pravidiel organizácie ovplyvňujú vaše možnosti funkcie Send.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFilePremiumRequired" xml:space="preserve">
+    <value>Bezplatné účty sú obmedzené len na zdieľanie textu. Na odosielanie súborov cez Send sa vyžaduje prémiové členstvo.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="SendFileEmailVerificationRequired" xml:space="preserve">
+    <value>Na odosielanie súborov cez Send musíte overiť svoj e-mail.</value>
+    <comment>'Send' is a noun and the name of a feature called 'Bitwarden Send'. It should not be translated.</comment>
+  </data>
+  <data name="PasswordPrompt" xml:space="preserve">
+    <value>Master password re-prompt</value>
+  </data>
+  <data name="PasswordConfirmation" xml:space="preserve">
+    <value>Master password confirmation</value>
+  </data>
+  <data name="PasswordConfirmationDesc" xml:space="preserve">
+    <value>This action is protected, to continue please re-enter your master password to verify your identity.</value>
   </data>
 </root>

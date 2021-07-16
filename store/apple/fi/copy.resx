@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Name" xml:space="preserve">
-    <value>Bitwarden salasanojen hallinta</value>
+    <value>Bitwarden – Salasanojen hallinta</value>
     <comment>Max 30 characters</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -131,10 +131,10 @@ Tietoturva-asiantuntijat suosittelevat ainutlaatuisten, satunnaisesti luotujen s
 Bitwarden säilyttää kaikki kirjautumistietosi salattussa holvissa, joka synkronoidaan laitteidesi välillä. Koska tietosi ovat täysin salattuja jo ennen kuin ne edes lähtevät laitteeltasi, vain sinä pääset niihin käsiksi. Edes Bitwardenin kehittäjät eivät voi lukea tietojasi, vaikka haluaisivat. Tietosi suojataan 256-bittisellä AES-salauksella, suolatulla hajautuksella sekä PBKDF2 ja SHA-256 -menetelmillä.
 
 Bitwarden on keskittynyt avoimen lähdekoodin ohjelmistoihin. Bitwardenin lähdekoodi on esillä GitHubissa ja kuka tahansa voi tutkia ja tarkastella sitä sekä osallistua Bitwardenin kehitykseen.</value>
-    <comment>Max 4000 characters</comment>
+  <comment>Max 4000 characters</comment>
   </data>
   <data name="Keywords" xml:space="preserve">
-    <value>bit warden,8bit,salasana,ilmainen salasanojen hallinta,salasanojen hallinta,käyttäjätunnusten hallinta</value>
+    <value>bitwarden,bit warden,8bit,salasana,ilmainen salasanojen hallinta,salasanojen hallinta,käyttäjätunnusten hallinta</value>
     <comment>Max 100 characters</comment>
   </data>
   <data name="Screenshot1" xml:space="preserve">

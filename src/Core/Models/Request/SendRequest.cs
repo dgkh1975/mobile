@@ -8,6 +8,7 @@ namespace Bit.Core.Models.Request
     public class SendRequest
     {
         public SendType Type { get; set; }
+        public long? FileLength { get; set; }
         public string Name { get; set; }
         public string Notes { get; set; }
         public string Key { get; set; }
@@ -18,10 +19,12 @@ namespace Bit.Core.Models.Request
         public SendFileApi File { get; set; }
         public string Password { get; set; }
         public bool Disabled { get; set; }
+        public bool HideEmail { get; set; }
 
-        public SendRequest(Send send)
+        public SendRequest(Send send, long? fileLength)
         {
-            Type = send.Type;
+            Type = send.Type ;
+            FileLength = fileLength;
             Name = send.Name?.EncryptedString;
             Notes = send.Notes?.EncryptedString;
             MaxAccessCount = send.MaxAccessCount;
@@ -30,6 +33,7 @@ namespace Bit.Core.Models.Request
             Key = send.Key?.EncryptedString;
             Password = send.Password;
             Disabled = send.Disabled;
+            HideEmail = send.HideEmail;
 
             switch (Type)
             {

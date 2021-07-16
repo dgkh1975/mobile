@@ -31,6 +31,7 @@ namespace Bit.Droid.Accessibility
             // So keep them in sync with:
             //   - AutofillHelpers.{TrustedBrowsers,CompatBrowsers}
             //   - Resources/xml/autofillservice.xml
+            new Browser("alook.browser", "search_fragment_input_view"),
             new Browser("com.amazon.cloud9", "url"),
             new Browser("com.android.browser", "url"),
             new Browser("com.android.chrome", "url_bar"),
@@ -45,14 +46,21 @@ namespace Bit.Droid.Accessibility
             new Browser("com.chrome.beta", "url_bar"),
             new Browser("com.chrome.canary", "url_bar"),
             new Browser("com.chrome.dev", "url_bar"),
+            new Browser("com.cookiegames.smartcookie", "search"),
+            new Browser("com.cookiejarapps.android.smartcookieweb", "mozac_browser_toolbar_url_view"),
             new Browser("com.duckduckgo.mobile.android", "omnibarTextInput"),
             new Browser("com.ecosia.android", "url_bar"),
             new Browser("com.google.android.apps.chrome", "url_bar"),
             new Browser("com.google.android.apps.chrome_dev", "url_bar"),
+            new Browser("com.jamal2367.styx", "search"),
             new Browser("com.kiwibrowser.browser", "url_bar"),
             new Browser("com.microsoft.emmx", "url_bar"),
+            new Browser("com.microsoft.emmx.beta", "url_bar"),
+            new Browser("com.microsoft.emmx.canary", "url_bar"),
+            new Browser("com.microsoft.emmx.dev", "url_bar"),
             new Browser("com.mmbox.browser", "search_box"),
             new Browser("com.mmbox.xbrowser", "search_box"),
+            new Browser("com.mycompany.app.soulbrowser", "edit_text"),
             new Browser("com.naver.whale", "url_bar"),
             new Browser("com.opera.browser", "url_field"),
             new Browser("com.opera.browser.beta", "url_field"),
@@ -74,8 +82,12 @@ namespace Bit.Droid.Accessibility
             new Browser("idm.internet.download.manager.adm.lite", "search"),
             new Browser("idm.internet.download.manager.plus", "search"),
             new Browser("io.github.forkmaintainers.iceraven", "mozac_browser_toolbar_url_view"),
-            new Browser("mark.via", "o"),
-            new Browser("mark.via.gp", "o"),
+            new Browser("mark.via", "am,an"),
+            new Browser("mark.via.gp", "as"),
+            new Browser("net.slions.fulguris.full.download", "search"),
+            new Browser("net.slions.fulguris.full.download.debug", "search"),
+            new Browser("net.slions.fulguris.full.playstore", "search"),
+            new Browser("net.slions.fulguris.full.playstore.debug", "search"),
             new Browser("org.adblockplus.browser", "url_bar,url_bar_title"), // 2nd = Legacy (before v2)
             new Browser("org.adblockplus.browser.beta", "url_bar,url_bar_title"), // 2nd = Legacy (before v2)
             new Browser("org.bromite.bromite", "url_bar"),
@@ -181,7 +193,9 @@ namespace Bit.Droid.Accessibility
             new KnownUsernameField("amazon.in",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
             new KnownUsernameField("amazon.it",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
             new KnownUsernameField("amazon.nl",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
+            new KnownUsernameField("amazon.pl",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
             new KnownUsernameField("amazon.sa",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
+            new KnownUsernameField("amazon.se",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
             new KnownUsernameField("amazon.sg",              new (string, string)[] { ("contains:/ap/signin", "ap_email_login,ap_email") }),
 
             // Amazon Web Services
